@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.mapper">
+
+
+<select id="detail" resultType="board.BoardVO">
+	select board.*, (select m_nikname from member
+	                 where member.m_id=writer) m_nikname 
+	from board where no=#{no}
+</select>
+
+<delete id="delete">
+	delete from board where no=#{no}
+</delete>
+
+<update id="update">
+	update board set s_title=#{s_title}, s_content=#{s_content}
+			, s_photo=#{s_photo, jdbcType=VARCHAR}
+			, s_photo_path=#{s_photo_path, jdbcType=VARCHAR}
+	where no=#{no}
+</update>
+
+<update id="read">
+	update board set readcnt = readcnt + 1 where no=#{no}
+</update>
+
+<insert id="insert">
+	insert into board 
+		(s_title, s_content, writer, s_photo, s_photo_path)
+	values (#{s_title}, #{s_content}, #{writer}
+			, #{s_photo, jdbcType=VARCHAR}
+			, #{s_photo_path, jdbcType=VARCHAR})
+</insert>
+
+
+<sql id="where_search">
+	<if test=" search=='all' ">
+	where s_title like '%' || #{keyword} || '%'
+	or s_content  like '%' || #{keyword} || '%'
+	or writer in ( select m_id from member 
+	               where m_nikname like '%' || #{keyword} || '%' )
+	</if>
+	<if test=" search=='s_title' or search=='s_content' ">
+	where ${search} like '%' || #{keyword} || '%'
+	</if>
+	<if test=" search=='writer' ">
+	where writer in ( select m_id from member 
+	                  where m_nikname like '%' || #{keyword} || '%' )
+	</if>
+</sql>
+
+<select id="totalList" resultType="integer">
+	select count(*) from board <include refid="where_search"/>
+</select>
+<select id="list" resultType="board.BoardVO">
+	select b.*, (select m_nikname from member
+	             where member.m_id=writer) m_nikname 
+	from (select b.*, rownum od  
+	      from (select * from s_board
+	            order by no) b 
+	      order by od desc) b
+	where od between #{beginList} and #{beginList};
+</select>
+
+
+
+</mapper>

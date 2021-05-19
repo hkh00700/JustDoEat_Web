@@ -49,25 +49,10 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("category");
-		
-		//카카오로그인한 경우 카카오계정도 함께 로그아웃
-//		String social 
-//				= ((MemberVO)session.getAttribute("loginInfo"))
-//					.getSocial_type();
-		
+
 		session.removeAttribute("loginInfo");
 
-//		if( social!=null && social.equals("kakao")) {
-//			//curl -v -X GET "https://kauth.kakao.com/oauth/logout?
-//			//client_id={YOUR_REST_API_KEY}
-//			//&logout_redirect_uri={YOUR_LOGOUT_REDIRECT_URI}"
-//			StringBuffer url = new StringBuffer(
-//					"https://kauth.kakao.com/oauth/logout?");
-//			url.append("client_id=").append(kakao_client_id);
-//			url.append("&logout_redirect_uri=")
-//						.append("http://localhost/smart");
-//			return "redirect:" + url.toString();
-//		}else
+
 			return "redirect:/";
 	}
 	

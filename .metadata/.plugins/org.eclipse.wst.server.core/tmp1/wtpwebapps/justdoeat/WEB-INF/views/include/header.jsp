@@ -18,7 +18,7 @@
 		<li><a class='btn-fill' href='member'>회원가입</a></li>
 		</c:if>
 		<c:if test="${!empty loginInfo}">
-		<li style='padding-right:10px'><strong>${loginInfo.m_name}</strong> 님</li>
+		<li style='padding-right:10px'><strong>${loginInfo.m_nikname}</strong> 님</li>
 		<li><a class='btn-fill' href='logout'>로그아웃</a></li>
 		</c:if>
 	</ul>

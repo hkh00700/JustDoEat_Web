@@ -11,13 +11,13 @@
 <form method="post" enctype="multipart/form-data" action="insert.bo" >
 <table>
 <tr><th class='wpx160'>제목</th>
-	<td><input type='text' name='title' class='need' title='제목' /></td>
+	<td><input type='text' name='s_title' class='need' title='제목' /></td>
 </tr>
 <tr><th>작성자</th>
-	<td class='left'>${loginInfo.name}</td>
+	<td class='left'>${loginInfo.m_nikname}</td>
 </tr>
 <tr><th>내용</th>
-	<td><textarea name='content' class='need' title='내용' ></textarea>
+	<td><textarea name='s_content' class='need' title='내용' ></textarea>
 	</td>
 </tr>
 <tr><th>파일첨부</th>

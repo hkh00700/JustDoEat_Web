@@ -1,0 +1,12 @@
+package board;
+
+import java.sql.Date;
+
+public class BoardVO {
+	private int id, no, readcnt;
+	private String s_photo;
+	private String s_title, s_content, nikname, name,  s_photo_path;
+	private Date updatetime;
+	
+	
+}
