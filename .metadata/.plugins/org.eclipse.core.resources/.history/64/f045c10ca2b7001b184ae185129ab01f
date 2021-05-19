@@ -1,0 +1,13 @@
+package game;
+
+import java.util.ArrayList;
+
+public class GameServiceImpl implements GameService {
+
+	@Override
+	public ArrayList<GameDTO> eatSelectRandom() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -15,28 +15,29 @@ a:link, a:visited { text-decoration:none; color:#000; }
 	background-color:#000;  opacity:0.3; display:none;
 }
 
-table {
-	width: 80%;
-	margin: 0 auto;
-	border: 1px solid;
-	border-collapse: collapse;
-}
-table th, table td {
-	border: 1px solid;
-	padding: 5px 10px;
-}
+/* table { */
+/* 	width: 80%; */
+/* 	margin: 0 auto; */
+/* 	border: 1px solid; */
+/* 	border-collapse: collapse; */
+/* } */
+/* table th, table td { */
+/* 	border: 1px solid; */
+/* 	padding: 5px 10px; */
+/* } */
 
 .btnSet { margin-top:20px }
 a.btn-fill, a.btn-empty {
 	text-align:center;
 	padding:3px 10px;
-	border: 1px solid #3367d6;
+	border: none;
 	border-radius: 3px;
 	box-shadow:2px 2px 3px #022d72; 
 }
 a.btn-fill {
-	background-color: #3367d6;
-	color: #fff;
+	background-color: #ffe000;
+	color:gray;
+	font-weight:bold;
 }
 a.btn-empty {
 	background-color: #fff;
