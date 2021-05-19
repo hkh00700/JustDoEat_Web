@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" 
+	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert s_title here</title>
 <style type="text/css">
 ul.grid li div:nth-child(1) {
 	overflow:hidden; display:-wibkit-box;
@@ -24,13 +25,13 @@ text-overflow:ellipsis; white-space:nowrap; }
 <div id='list-top'>
 <form method="post" action="list.bo">
 	<input type='hidden' name='curPage' value='1'/>
-	<input type='hidden' name='id' />
+	<input type='hidden' name='no' />
 	<div>
 		<ul>
 			<li><select name='search' class='wpx80'>
 				<option value='all' ${page.search eq 'all' ? 'selected' : ''}>전체</option>
-				<option value='title' ${page.search eq 'title' ? 'selected' : ''}>제목</option>
-				<option value='content' ${page.search eq 'content' ? 'selected' : ''}>내용</option>
+				<option value='s_title' ${page.search eq 's_title' ? 'selected' : ''}>제목</option>
+				<option value='s_content' ${page.search eq 's_content' ? 'selected' : ''}>내용</option>
 				<option value='writer' ${page.search eq 'writer' ? 'selected' : ''}>작성자</option>
 				</select>
 			</li>
@@ -66,10 +67,10 @@ text-overflow:ellipsis; white-space:nowrap; }
 <c:if test="${page.viewType eq 'grid'}"> <!-- 바둑판형태 -->
 <ul class='grid'>
 	<c:forEach items="${page.list}" var="vo">
-	<li><div><a onclick="go_detail(${vo.id})">${vo.title}</a></div>
-		<div>${vo.name}</div>
-		<div>${vo.writedate}<span style="float:right;">
-			${empty vo.filename ? '' 
+	<li><div><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
+		<div>${vo.m_nikname}</div>
+		<div>${vo.updatetime}<span style="float:right;">
+			${empty vo.s_photo ? '' 
 			: '<img src="imgs/attach.png" class="file-img"/>'}</span></div>
 	</li>
 	</c:forEach>
@@ -81,14 +82,14 @@ text-overflow:ellipsis; white-space:nowrap; }
 	<th>제목</th>
 	<th class='wpx100'>작성자</th>
 	<th class='wpx120'>작성일자</th>
-	<th class='wpx60'>첨부파일</th>
+<!-- 	<th class='wpx60'>첨부파일</th> -->
 </tr>
 <c:forEach items="${page.list}" var="vo">
 <tr><td>${vo.no}</td>
-	<td class='left'><a onclick="go_detail(${vo.id})">${vo.title}</a></td>
-	<td>${vo.name}</td>
-	<td>${vo.writedate}</td>
-	<td>${empty vo.filename ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td>
+	<td class='left'><a onclick="go_detail(${vo.no})">${vo.s_title}</a></td>
+	<td>${vo.m_nikname}</td>
+	<td>${vo.updatetime}</td>
+<%-- 	<td>${empty vo.s_photo ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td> --%>
 </tr>
 </c:forEach>
 </table>

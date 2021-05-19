@@ -1,0 +1,7 @@
+package board;
+
+public interface BoardService {
+	int board_insert(BoardVO vo); //신규 방명록 저장
+	
+	
+}
