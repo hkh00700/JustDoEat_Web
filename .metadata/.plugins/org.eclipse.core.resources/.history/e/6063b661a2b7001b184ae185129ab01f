@@ -1,0 +1,39 @@
+package game;
+
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class GameDAO implements GameService {
+	DataSource dataSource;
+	
+	
+	
+	
+	
+	//DB연결 드라이버 초기화
+	public GameDAO() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:/comp/env/bteam");
+			
+		}catch(NamingException e) {
+			e.getMessage();
+		}
+		
+	}
+	
+	//32개 추천음식 DB에서 가져오기
+	public ArrayList<GameDTO> eatSelectRandom() {
+		return null;
+	}
+
+
+
+}

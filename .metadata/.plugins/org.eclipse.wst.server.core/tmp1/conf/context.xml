@@ -25,4 +25,16 @@
     <!--
     <Manager pathname="" />
     -->
+        <Resource auth="Container"
+        driverClassName="oracle.jdbc.driver.OracleDriver"
+        maxActive="50"
+        maxWait="1000"
+        name="bteam"
+        password="bteam"
+        type="javax.sql.DataSource"
+        url="jdbc:oracle:thin:@115.23.60.150:1521:xe"
+        username="bteam"
+        factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+    />  
+    
 </Context>

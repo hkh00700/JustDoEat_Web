@@ -1,0 +1,18 @@
+package game;
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class GameDAO implements GameService {
+	@Autowired private SqlSession sql;
+	
+	//32개 추천음식 DB에서 가져오기
+	public ArrayList<GameDTO> eatSelectRandom() {
+		return null;
+	}
+
+
+
+}

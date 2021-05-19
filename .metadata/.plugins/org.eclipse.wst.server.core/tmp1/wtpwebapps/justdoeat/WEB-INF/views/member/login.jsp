@@ -14,7 +14,7 @@
 }
 #login { 
 	width:100%; height:calc(100% - 190px); 
-	padding:50px 0;  border:1px solid #ccc; 
+	padding:50px 0;   border: none;
 }
 #userid, #userpw { 
 	width:48%; height:25px; 
@@ -24,12 +24,19 @@
 	line-height:42px; box-shadow:none !important; 
 }	
 .social { width:70%; height:50px; padding-bottom:10px; }
+
+input{
+border:none;
+border-bottom: 3px solid #eb9700;
+}
+
+
 </style>
 </head>
 <body>
 <div class='container'>
 	<div style="height:80px">
-		<a href='<c:url value="/"/>'><img src='imgs/whichfood.logo.png'/></a>
+		<a href='<c:url value="/"/>'><img src='imgs/logo.png'/></a>
 	</div>
 
 	<div id='login'>
