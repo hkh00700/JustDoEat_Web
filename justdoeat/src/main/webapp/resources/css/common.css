@@ -75,9 +75,9 @@ textarea[name=s_content] { width:calc(100% - 6px);
 #attach-file, #delete-file { display:none; cursor:pointer; }
 
 ul.grid { width:80%; margin:0 10% }
-ul.grid li { float:left; width:19%; height:150px;
-	border:1px solid gray; box-sizing:border-box;  
-}
+/* ul.grid li { float:left; width:19%; height:150px; */
+/* 	border:1px solid gray; box-sizing:border-box;   */
+/* } */
 ul.grid li:not(:nth-child(5n)) { margin:0 1.25% 20px 0 }
 ul.grid li div { text-align:left; padding:10px; }
 ul.grid li div:nth-child(1) { height:60px; }
@@ -87,6 +87,8 @@ ul.grid li div:nth-child(2) { padding:0 10px; }
 .wpct60 { width: 60%; }
 .wpct80 { width: 80%; }
 
+.wpx600 { width:600px; }
+.wpx500 { width:500px; }
 .wpx300 { width:300px; }
 .wpx200 { width:200px; }
 .wpx180 { width:180px; }

@@ -1,17 +1,10 @@
 INDEX VERSION 1.131
-<<<<<<< HEAD
-D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4132584970.index
-\justdoeat\src\main\java
 D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\642916719.index
+\justdoeat\src\main\java
+D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4132584970.index
 \justdoeat\src\main\java
 D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2527357562.index
 \justdoeat\src\main\java
-=======
-D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\642916719.index
-\justdoeat\src\main\java
-D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4132584970.index
-\justdoeat\src\main\java
->>>>>>> 0c433a7a64831142d18ca3bb9c90c6cb7fc58b1a
 D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3853285746.index
 \justdoeat\src\main\java
 D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3468394928.index

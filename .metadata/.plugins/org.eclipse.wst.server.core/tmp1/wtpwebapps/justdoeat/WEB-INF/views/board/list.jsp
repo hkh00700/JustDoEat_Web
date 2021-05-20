@@ -14,19 +14,20 @@ ul.grid li div:nth-child(1) {
 	-wibkit-box-orient: vertical;
 	word-wrap:break-word; 
 }
-table { table-layout:fixed; }
+table { table-layout:fixed; border-collapse: collapse; }
+/* table, th, td {border: 1px solid black;} */
 table td { overflow:hidden; 
 text-overflow:ellipsis; white-space:nowrap; }
 </style>
 
 </head>
 <body>
-<h3>방명록 목록</h3>
+
 <div id='list-top'>
 <form method="post" action="list.bo">
 	<input type='hidden' name='curPage' value='1'/>
 	<input type='hidden' name='no' />
-	<div>
+	<div style="width: 1200px; margin: 0 auto;">
 		<ul>
 			<li><select name='search' class='wpx80'>
 				<option value='all' ${page.search eq 'all' ? 'selected' : ''}>전체</option>
@@ -77,19 +78,22 @@ text-overflow:ellipsis; white-space:nowrap; }
 </ul>
 </c:if>
 <c:if test="${page.viewType eq 'list'}"> <!-- 목록형태 -->
-<table>
-<tr><th class='wpx60'>번호</th>
-	<th>제목</th>
+<table style='margin:0 auto; width: 1200px;'>
+<tr style="border-top:2px solid #040c50;background-color: #ef5b5b; padding: 0 0 10px; height: 45px;"><th class='wpx100'>No.</th>
+	<th class='wpx100'>사진</th>
+	<th class='wpx600'>제목</th>
 	<th class='wpx100'>작성자</th>
-	<th class='wpx120'>작성일자</th>
+	<th class='wpx100'>작성일자</th>
 <!-- 	<th class='wpx60'>첨부파일</th> -->
 </tr>
 <c:forEach items="${page.list}" var="vo">
-<tr><td>${vo.no}</td>
+<tr style="height: 60px;"><td>${vo.no}</td>
+	
 	<td class='left'><a onclick="go_detail(${vo.no})">${vo.s_title}</a></td>
-	<td>${vo.m_nikname}</td>
-	<td>${vo.updatetime}</td>
 <%-- 	<td>${empty vo.s_photo ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td> --%>
+	<td>${vo.m_nikname}</td>
+	<td></td>
+	<td>${vo.updatetime}</td>
 </tr>
 </c:forEach>
 </table>
