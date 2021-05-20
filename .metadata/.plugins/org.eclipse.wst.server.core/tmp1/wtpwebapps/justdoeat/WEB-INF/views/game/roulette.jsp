@@ -5,7 +5,12 @@
 <%
 int i = 1;
 int max = 360;
-String result= null;
+String resultA = "null";
+String resultB = "null";
+String resultC = "null";
+String resultD = "null";
+String resultE = "null";
+
 int random =(int)(Math.random()*max);
 float fromAngle = random+2160;
 request.setAttribute("random", random);
@@ -57,16 +62,18 @@ request.setAttribute("fromAngle", fromAngle);
 }
 
 .content{
+margin: 0 auto;
 position:relative;
-height: 720px;
+width:1200px;
+height: 730px;
 text-align: center;
 font-size: 20px;
 }
 h3{
 position:absolute;
 margin-top:-350px;
-margin-left: 600px;
-right: 600px;
+margin-left: 600px;right: 600px;
+
 
 }
 .num{
@@ -76,8 +83,8 @@ margin-top:-300px;
 
 }
 .menu{
-position:absolute;
-margin-left: 1043px;
+width:314px;
+margin-left: 743px;
 margin-top:-323px;
 }
 
@@ -103,24 +110,28 @@ margin: 0 194.9px 409.2px 195.9px;
 padding: 9px 8px 8px;
 }
 h2{
+
+width:307px;
+height:26px;
 margin-left:550px;
-margin-top:-30px;
-color: blue;
+margin-top:30px;
+color: navy;
 
 }
 .content2 a:first-of-type{
-width: 580px;
-height: 100px;
+width: 314px;
+height: 80px;
 margin: 40px 23px 38px 30px; 
 padding: 5px 95px 5px 95px;
 border-radius: 60px;
 box-shadow: 5px 20px 15px 0 rgba(0, 0, 0, 0.38);
-border: solid 3px #00458a;
+border: solid 3px #ef5b5b;
 text-align: center;
 font-size: 45px;
 position: relative;
 left: 290px;
-color: orange;
+color: white;
+background-color: #ef5b5b;
 }
 
 .content2 img{
@@ -131,6 +142,13 @@ top:-100px;
 	 transform: rotate(0deg);
 	 animation: rotation 4s ease-in-out forwards;
 }
+
+#trigger{
+margin-left: 751px;
+}
+
+
+
 
 </style>
 </head>
@@ -144,8 +162,18 @@ top:-100px;
 	 <c:forEach items="${edtos }" var="vo">
 		 <tr>
 		 	<td class="left" style="border-bottom: 1px solid #000; width: 400px; height: 50px; vertical-align : bottom;">0<%=i %>. ${vo.food }</td></tr>
-		 	 
-		 	<%i++; %>  
+			 <%if(i==1){%>
+			 <input id="resultA" type="hidden" value="${vo.food }" />
+			 <%}else if(i==2){%>
+			 <input id="resultB" type="hidden" value="${vo.food }" />			 
+			 <%}else if(i==3){%>
+			 <input id="resultC" type="hidden" value="${vo.food }" />			 
+			<% }else if(i==4){%>
+			 <input id="resultD" type="hidden" value="${vo.food }" />			 
+			 <%}else if(i==5){%>
+			 <input id="resultE" type="hidden" value="${vo.food }" />			 
+			 <%}%>
+		 	<%i++;%>       
 	</c:forEach> 
 	</table>
 	</div>
@@ -156,34 +184,35 @@ top:-100px;
 	</div>
 </div>
 <script type="text/javascript">
-$(function(){
+
+/* for(var i = 0; i < result.length; i++){
+    console.log(result[i]);
+} */
 
 
-	
-})
 element = document.getElementById("trigger");
 element_roulette = document.getElementById("roulette");
-function random( data ) {
-
+function random() {
 	  element_roulette.classList.remove("roulette");
 	  element_roulette.classList.add("roulette"); 
 	  $('#trigger').text("추천음식");
 	  setTimeout(() => {
 		  if((${fromAngle}>=2486 && ${fromAngle}<=2520) || (${fromAngle}>=2160 && ${fromAngle}<=2196)){
-				 //Thread.sleep(4000);
-				$('#trigger').text(data);
+				 
+				$('#trigger').text(document.getElementById("resultA").value);
+				
 			 }else if(${fromAngle}>=2414 && ${fromAngle}<=2485){
-				// Thread.sleep(4000);
-				 $('#trigger').text(data); 
+				
+				 $('#trigger').text(document.getElementById("resultB").value); 
 			 }else if(${fromAngle}>=2342 && ${fromAngle}<=2413){
-				// Thread.sleep(4000);
-				 $('#trigger').text(data); 
+				
+				 $('#trigger').text(document.getElementById("resultC").value); 
 			 }else if(${fromAngle}>=2270 && ${fromAngle}<=2341){
-				// Thread.sleep(4000);
-				 $('#trigger').text(data); 
+				
+				 $('#trigger').text(document.getElementById("resultD").value); 
 			 }else if(${fromAngle}>=2197 && ${fromAngle}<=2269){
-				 //Thread.sleep(4000);
-				 $('#trigger').text(data); 
+				
+				 $('#trigger').text(document.getElementById("resultE").value); 
 			 }	
 	}, 4000);
 }
@@ -192,15 +221,6 @@ function random( data ) {
 //public static void delay() { int delay = 1000; try { Thread.sleep(delay); } catch (InterruptedException e) { throw new RuntimeException(e); } }
 
 	
-
-
-
-
-
-
-
-
-
 // @keyframes rotation {
 // 	/* 		int random = getRandom(360); */
 // 	/* 		float fromAngle = random+720+angle; */
