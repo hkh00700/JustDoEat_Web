@@ -16,11 +16,7 @@
 		</ul>
 	</div>
 
-<<<<<<< HEAD
 	<div class='category' style='width:1200px;position: absolute;left: 50%; transform:translateX(-50%);'>
-=======
-	<div class='category' style='margin-left:100px'>
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac
 		<ul>
 			<li><a href='<c:url value="/"/>'><img src='imgs/bi.png' alt='홈으로'/></a></li>
 			<li><a href='list.cu' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
@@ -29,12 +25,7 @@
 			<li><a href='list.my' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
 			<li><a href='list.bo' class='${category eq "bo" ? "active" : ""}'>게시판</a></li> 
 		</ul>
-
-<<<<<<< HEAD
-	
-=======
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac
-	
+	</div>
 </header> 
 <style>
 .log{
