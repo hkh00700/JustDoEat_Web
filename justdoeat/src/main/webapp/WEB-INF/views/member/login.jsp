@@ -17,17 +17,17 @@
 	padding:50px 0;   border: none;
 }
 #userid, #userpw { 
-	width:48%; height:25px; 
+	width:314px; height:25px; 
 	padding:5px 10%; margin-bottom:10px; }
 .btn-fill {
-	display:block; margin:auto; width:63.5%; height:42px; 
+	display:block; margin:auto; width:374px; height:50px; 
 	line-height:42px; box-shadow:none !important; 
 }	
-.social { width:70%; height:50px; padding-bottom:10px; }
+.social { width:394px; height:60px; padding-bottom:20px;  }
 
 input{
 border:none;
-border-bottom: 3px solid #eb9700;
+border-bottom: 2px solid #ef5b5b;
 }
 
 #btnlogin{
@@ -35,8 +35,9 @@ border-bottom: 3px solid #eb9700;
  color: white;
 }
 
-a{
-border-radius: 20px;
+#login a{
+border-radius: 50px;
+
 }
 
 </style>
@@ -44,7 +45,7 @@ border-radius: 20px;
 <body>
 <div class='container'>
 	<div style="height:80px">
-		<a href='<c:url value="/"/>'><img src='imgs/logo.png'/></a>
+		<a href='<c:url value="/"/>'></a>
 	</div>
 
 	<div id='login'>
@@ -53,9 +54,8 @@ border-radius: 20px;
 		    onkeypress="if( event.keyCode==13 ){ go_login() }" />
 		<a class='btn-fill' onclick="go_login()" id="btnlogin">로그인</a>
 		<h4 style='width:69%; margin:25px auto; '>간편로그인</h4>
-		
-		<a href='kakaoLogin'><img class='social' src='imgs/kakao_login.png' /></a>
-		<a href='naverLogin'><img class='social' src='imgs/naver_login.png' /></a>
+		<a href='kakaoLogin'><img class='social' src='imgs/cacaologin_rec.png' /></a>
+		<a href='naverLogin'><img class='social' src='imgs/naverlogin_rec.png' /></a>
 		
 	</div>
 </div>
