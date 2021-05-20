@@ -30,6 +30,14 @@ border:none;
 border-bottom: 3px solid #eb9700;
 }
 
+#btnlogin{
+ background-color: #ef5b5b;
+ color: white;
+}
+
+a{
+border-radius: 20px;
+}
 
 </style>
 </head>
@@ -43,10 +51,11 @@ border-bottom: 3px solid #eb9700;
 		<input type='text' id='userid' placeholder="아이디" />
 		<input type='password' id='userpw' placeholder="비밀번호"
 		    onkeypress="if( event.keyCode==13 ){ go_login() }" />
-		<a class='btn-fill' onclick="go_login()">로그인</a>
-		<hr style='width:69%; margin:25px auto;'>
-		<a href='naverLogin'><img class='social' src='imgs/naver_login.png' /></a>
+		<a class='btn-fill' onclick="go_login()" id="btnlogin">로그인</a>
+		<h4 style='width:69%; margin:25px auto; '>간편로그인</h4>
+		
 		<a href='kakaoLogin'><img class='social' src='imgs/kakao_login.png' /></a>
+		<a href='naverLogin'><img class='social' src='imgs/naver_login.png' /></a>
 		
 	</div>
 </div>

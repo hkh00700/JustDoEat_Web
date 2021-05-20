@@ -35,9 +35,10 @@ color: orange;
   margin: 40px 157px 42px 23px;
   padding: 41px 35px 44px;
   box-shadow: 5px 20px 15px 0 rgba(0, 0, 0, 0.16);
-  background-color: #ffe000;
+  background-color: #ef5b5b;
   border-radius: 50%;
   font-size: 30px;
+  color: white;
 }
 .content img{
 position: relative;
