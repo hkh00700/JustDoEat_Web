@@ -6,4 +6,4 @@ src/test/
 .springBeans
 
 /Servers/
-.metadata/
+/.metadata/
