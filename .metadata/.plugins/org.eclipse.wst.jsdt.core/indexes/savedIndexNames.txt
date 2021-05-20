@@ -1,42 +1,7 @@
 INDEX VERSION 1.4+D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-<<<<<<< HEAD
 1242157007.index
 3748979700.index
 3379311236.index
 2742259259.index
-205386549.index
-=======
-<<<<<<< HEAD
-1242157007.index
-=======
-<<<<<<< HEAD
-2176745683.index
-=======
-4132584970.index
->>>>>>> afe5a8880b68fa71710bedefe32de45510fa2a8e
-3748979700.index
-2527357562.index
-3379311236.index
-2742259259.index
 3310517963.index
 2176745683.index
-<<<<<<< HEAD
-2527357562.index
-=======
-=======
-642916719.index
->>>>>>> 9461d15cda7deafa3da22438d37552822f4ec30b
-3379311236.index
-1242157007.index
-3748979700.index
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac
-3310517963.index
-2176745683.index
-205386549.index
-3853285746.index
-<<<<<<< HEAD
-=======
->>>>>>> 0c433a7a64831142d18ca3bb9c90c6cb7fc58b1a
->>>>>>> 9461d15cda7deafa3da22438d37552822f4ec30b
->>>>>>> afe5a8880b68fa71710bedefe32de45510fa2a8e
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac

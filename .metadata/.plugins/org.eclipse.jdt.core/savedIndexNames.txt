@@ -1,84 +1,6 @@
 INDEX VERSION 1.131+D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jdt.core
-<<<<<<< HEAD
 1332355353.index
 2404007687.index
-=======
-<<<<<<< HEAD
-3861553733.index
-185906880.index
-2404007687.index
-=======
-1586812289.index
-1918889048.index
-3861553733.index
-3717306947.index
-3379765467.index
-1069792647.index
-2122203016.index
-2012182705.index
-2404007687.index
-<<<<<<< HEAD
-185906880.index
-1043824285.index
-1332355353.index
-3215588279.index
-1083422449.index
-2965949455.index
-3044256266.index
-3492499870.index
-1889633449.index
-2103539230.index
-1610568951.index
-=======
-<<<<<<< HEAD
->>>>>>> afe5a8880b68fa71710bedefe32de45510fa2a8e
-2017500192.index
-2603429961.index
-3215588279.index
-3107891866.index
-2965949455.index
-2562176175.index
-2103539230.index
-1866043448.index
-3044256266.index
-3379765467.index
-3406517549.index
-2012182705.index
-1969043668.index
-4188197508.index
-1069792647.index
-3204703014.index
-1101061925.index
-1242157007.index
-3083416156.index
-604312209.index
-2412196792.index
-411843113.index
-1530363323.index
-1702313122.index
-1586812289.index
-1882700864.index
-2283134694.index
-1332355353.index
-740081845.index
-2122203016.index
-2183136573.index
-2732742894.index
-1918889048.index
-3096938905.index
-2122107353.index
-1365606606.index
-1266175223.index
-2571208634.index
-1083422449.index
-1948816094.index
-3492499870.index
-1610568951.index
-<<<<<<< HEAD
-3717306947.index
-=======
-=======
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac
 3204703014.index
 1110376115.index
 3629918551.index
@@ -89,7 +11,6 @@ INDEX VERSION 1.131+D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jdt.core
 2412196792.index
 3096938905.index
 2017500192.index
-1083422449.index
 185906880.index
 3379765467.index
 3861553733.index
@@ -108,32 +29,22 @@ INDEX VERSION 1.131+D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jdt.core
 1702313122.index
 2562176175.index
 1043824285.index
->>>>>>> afe5a8880b68fa71710bedefe32de45510fa2a8e
 1307745293.index
+1610568951.index
+3107891866.index
+2012182705.index
 595901770.index
-<<<<<<< HEAD
-=======
-1043824285.index
-1889633449.index
-3629918551.index
-1312513653.index
-1280255460.index
-1110376115.index
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9461d15cda7deafa3da22438d37552822f4ec30b
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac
 1882700864.index
 3083416156.index
 1312513653.index
+4188197508.index
 3406517549.index
 2732742894.index
 3215588279.index
 2965949455.index
-2283134694.index
-3492499870.index
 1242157007.index
+3492499870.index
+2283134694.index
 2122203016.index
 1365606606.index
 1069792647.index
@@ -141,9 +52,3 @@ INDEX VERSION 1.131+D:\JustDoEat_Web\.metadata\.plugins\org.eclipse.jdt.core
 411843113.index
 1948816094.index
 2603429961.index
-<<<<<<< HEAD
-=======
->>>>>>> 0c433a7a64831142d18ca3bb9c90c6cb7fc58b1a
->>>>>>> 9461d15cda7deafa3da22438d37552822f4ec30b
->>>>>>> afe5a8880b68fa71710bedefe32de45510fa2a8e
->>>>>>> aa60f4d5ea6cd8f5000acf51459943d17642ebac
