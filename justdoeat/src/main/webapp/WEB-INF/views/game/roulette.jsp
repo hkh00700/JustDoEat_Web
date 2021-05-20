@@ -125,13 +125,13 @@ margin: 40px 23px 38px 30px;
 padding: 5px 95px 5px 95px;
 border-radius: 60px;
 box-shadow: 5px 20px 15px 0 rgba(0, 0, 0, 0.38);
-border: solid 3px #ef5b5b;
 text-align: center;
 font-size: 45px;
 position: relative;
 left: 290px;
 color: white;
 background-color: #ef5b5b;
+line-height: 80px;
 }
 
 .content2 img{
@@ -143,9 +143,7 @@ top:-100px;
 	 animation: rotation 4s ease-in-out forwards;
 }
 
-#trigger{
-margin-left: 751px;
-}
+
 
 
 
