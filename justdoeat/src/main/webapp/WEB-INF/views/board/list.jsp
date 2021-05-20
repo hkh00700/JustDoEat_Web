@@ -42,11 +42,11 @@ text-overflow:ellipsis; white-space:nowrap; }
 		<ul>
 			<li><select name='pageList' class='wpx80'
 					onchange="$('form').submit()" >
+				<option value='5' ${page.pageList eq 5 ? 'selected': ''}>5개씩</option>
 				<option value='10' ${page.pageList eq 10 ? 'selected': ''}>10개씩</option>
 				<option value='15' ${page.pageList eq 15 ? 'selected': ''}>15개씩</option>
 				<option value='20' ${page.pageList eq 20 ? 'selected': ''}>20개씩</option>
-				<option value='25' ${page.pageList eq 25 ? 'selected': ''}>25개씩</option>
-				<option value='30' ${page.pageList eq 30 ? 'selected': ''}>30개씩</option>
+				
 				</select>
 			</li>
 			<li><select name='viewType' class='wpx100' 
@@ -87,12 +87,12 @@ text-overflow:ellipsis; white-space:nowrap; }
 <!-- 	<th class='wpx60'>첨부파일</th> -->
 </tr>
 <c:forEach items="${page.list}" var="vo">
-<tr style="height: 60px;"><td>${vo.no}</td>
+<tr style="height: 91px;"><td>${vo.no}</td>
 	
+	<td>사진</td>
 	<td class='left'><a onclick="go_detail(${vo.no})">${vo.s_title}</a></td>
 <%-- 	<td>${empty vo.s_photo ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td> --%>
 	<td>${vo.m_nikname}</td>
-	<td></td>
 	<td>${vo.updatetime}</td>
 </tr>
 </c:forEach>
