@@ -27,7 +27,7 @@ text-align: center;
 font-size: 45px;
 position: relative;
 left: 140px;
-color: orange;
+color: #ef5b5b;
 }
 .select{
  width: 100px;

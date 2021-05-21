@@ -144,7 +144,6 @@ top:-100px;
 
 
 
-
 </style>
 </head>
 <body>
@@ -175,7 +174,7 @@ top:-100px;
    <div class="content2">
    <h2>오늘의 메뉴</h2>
    <a id="trigger" onclick="random()">▶ START</a>
-   <br/><br/><br/><h4>ⓘ START버튼을 누르시면 게임이 시작됩니다.</h4>
+   <br/><br/><br/><h4 class='notice'>ⓘ START버튼을 누르시면 게임이 시작됩니다.</h4>
    </div>
 </div>
 <script type="text/javascript">
@@ -211,7 +210,9 @@ function random() {
           }   
    }, 4000);
 }
-
+$('#trigger').click(function(){
+	  $('.notice').hide();
+	});
 
 //public static void delay() { int delay = 1000; try { Thread.sleep(delay); } catch (InterruptedException e) { throw new RuntimeException(e); } }
 
