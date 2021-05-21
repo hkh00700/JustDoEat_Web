@@ -11,13 +11,13 @@
 <form method="post" enctype="multipart/form-data" action="update.bo" >
 <table>
 <tr><th class='wpx160'>제목</th>
-	<td><input type='text' name='title' value='${vo.title}' class='need' title='제목' /></td>
+	<td><input type='text' name='s_title' value='${vo.s_title}' class='need' title='제목' /></td>
 </tr>
 <tr><th>작성자</th>
-	<td class='left'>${vo.name}</td>
+	<td class='left'>${vo.m_nikname}</td>
 </tr>
 <tr><th>내용</th>
-	<td><textarea name='content' class='need' title='내용' >${vo.content}</textarea>
+	<td><textarea name='s_content' class='need' title='내용' >${vo.s_content}</textarea>
 	</td>
 </tr>
 <tr><th>파일첨부</th>
@@ -26,13 +26,13 @@
 			<input type='file' name='file' id='attach-file' />
 			<img src='imgs/select.png' class='file-img' />	
 		</label>
-		<span id='file-name'>${vo.filename}</span>
+		<span id='file-name'>${vo.s_photo}</span>
 		<span id='preview'></span>
 		<span id='delete-file' style='color:red'><i class='fas fa-times'></i></span>
 		</td>
 </tr>
 </table>
-<input type='hidden' name='id' value='${vo.id}' />
+<input type='hidden' name='no' value='${vo.no}' />
 <input type='hidden' name='attach'/>
 </form>
 
@@ -48,10 +48,10 @@
 		src="js/file_attach.js?v=<%=new java.util.Date().getTime()%>"></script>
 
 <script type="text/javascript">
-if(${!empty vo.filename} ){
+if(${!empty vo.s_photo} ){
 	$('#delete-file').css('display', 'inline');
-	if( isImage('${vo.filename}') ){
-		var img = "<img class='file-img' src='${vo.filepath}' />";
+	if( isImage('${vo.s_photo}') ){
+		var img = "<img class='file-img' src='${vo.s_photo_path}' />";
 		$('#preview').html(img);
 	}
 }

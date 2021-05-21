@@ -28,18 +28,22 @@ text-overflow:ellipsis; white-space:nowrap; }
 	<input type='hidden' name='curPage' value='1'/>
 	<input type='hidden' name='no' />
 	<div style="width: 1200px; margin: 0 auto;">
-		<ul>
-			<li><select name='search' class='wpx80'>
+		<div id=ser>
+		<ul >
+			<li><select id = 'select'  name='search' class='wpx140'>
 				<option value='all' ${page.search eq 'all' ? 'selected' : ''}>전체</option>
 				<option value='s_title' ${page.search eq 's_title' ? 'selected' : ''}>제목</option>
 				<option value='s_content' ${page.search eq 's_content' ? 'selected' : ''}>내용</option>
 				<option value='writer' ${page.search eq 'writer' ? 'selected' : ''}>작성자</option>
 				</select>
 			</li>
-			<li><input type='text' value='${page.keyword}' name='keyword' class='wpx300' /></li>
-			<li><a class='btn-fill' onclick='$("form").submit()'>검색</a></li>
+			<li><input type='text' value='${page.keyword}' name='keyword' class='wpx180' 
+				style="display: inline-block; height:38px;" placeholder="검색어를 입력하세요"/></li>
+			<li><a onclick='$("form").submit()'>검색</a></li>
 		</ul>
-		<ul>
+		</div>
+		<div id=page>
+		<ul >
 			<li><select name='pageList' class='wpx80'
 					onchange="$('form').submit()" >
 				<option value='5' ${page.pageList eq 5 ? 'selected': ''}>5개씩</option>
@@ -60,6 +64,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 			<li><a class='btn-fill' href='new.bo'>글쓰기</a></li>
 			</c:if>
 		</ul>
+		</div>
 	</div>
 </form>	
 </div>
@@ -113,8 +118,8 @@ $(function(){
 			, height * $('ul.grid li').outerHeight(true) - 20 );
 });
 
-function go_detail(id){
-	$('[name=id]').val(id);
+function go_detail(no){
+	$('[name=no]').val(no);
 	$('form').attr('action', 'detail.bo');
 	$('form').submit();
 }

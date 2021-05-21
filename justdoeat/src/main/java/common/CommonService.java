@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class CommonService {
 	
-	//파일다운로드
+	
 	public File fileDownload(HttpSession session
 					, HttpServletResponse response
 					, String s_photo, String s_photo_path) {
@@ -51,10 +51,10 @@ public class CommonService {
 		return file;
 	}
 	
-	//파일업로드
+	
 	public String fileUpload(String category
 					, MultipartFile file, HttpSession session) {
-		//업로드할 서버의 물리적 위치
+		
 		String resources 
 		= session.getServletContext().getRealPath("resources");
 		
