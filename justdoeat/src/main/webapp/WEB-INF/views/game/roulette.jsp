@@ -73,7 +73,6 @@ h3{
 position:absolute;
 margin-top:-350px;
 margin-left: 751px;
-
 }
 
 .menu{
@@ -88,7 +87,6 @@ margin-top:-323px;
   height: 425.8px;
   position:relative;
   top:127px;
- 
   margin-left: 163px;
   
 }
@@ -96,7 +94,6 @@ margin-top:-323px;
 
 #pin{
 z-index:1;
-
 left:10px;
 top:74px;
 margin-top:100px;
@@ -107,13 +104,11 @@ margin: 0 194.9px 409.2px 195.9px;
 padding: 9px 8px 8px;
 }
 h2{
-
 width:307px;
 height:26px;
 margin-left:670px;
 margin-top:30px;
 color: navy;
-
 }
 .content2 a:first-of-type{
 width: 314px;
@@ -140,8 +135,14 @@ top:-100px;
     animation: rotation 4s ease-in-out forwards;
 }
 
-
-
+.restart img{
+position:absolute;
+top:506px;
+width: 65px;
+height: 65px;
+right: 155px;
+ display:none;
+}
 
 
 </style>
@@ -173,8 +174,9 @@ top:-100px;
    </div>
    <div class="content2">
    <h2>오늘의 메뉴</h2>
-   <a id="trigger" onclick="random()">▶ START</a>
+   <a id="trigger" onclick="random()" >▶ START</a>
    <br/><br/><br/><h4 class='notice'>ⓘ START버튼을 누르시면 게임이 시작됩니다.</h4>
+   <a class="restart" onclick="random()"><img alt="재시작" src="imgs/reset.png"></a>
    </div>
 </div>
 <script type="text/javascript">
@@ -183,6 +185,7 @@ top:-100px;
     console.log(result[i]);
 } */
 
+var result= null;
 
 element = document.getElementById("trigger");
 element_roulette = document.getElementById("roulette");
@@ -192,27 +195,56 @@ function random() {
      $('#trigger').text("추천음식");
      setTimeout(() => {
         if((${fromAngle}>=2486 && ${fromAngle}<=2520) || (${fromAngle}>=2160 && ${fromAngle}<=2196)){
-             
             $('#trigger').text(document.getElementById("resultA").value);
-            
+            result = document.getElementById("resultA").value;
           }else if(${fromAngle}>=2414 && ${fromAngle}<=2485){
-            
              $('#trigger').text(document.getElementById("resultB").value); 
+             result =document.getElementById("resultB").value;
           }else if(${fromAngle}>=2342 && ${fromAngle}<=2413){
-            
              $('#trigger').text(document.getElementById("resultC").value); 
+             result =document.getElementById("resultC").value;
           }else if(${fromAngle}>=2270 && ${fromAngle}<=2341){
-            
              $('#trigger').text(document.getElementById("resultD").value); 
+             result =document.getElementById("resultD").value;
           }else if(${fromAngle}>=2197 && ${fromAngle}<=2269){
-            
              $('#trigger').text(document.getElementById("resultE").value); 
+             result = document.getElementById("resultE").value;
           }   
+      
    }, 4000);
+     
+     
+      
+     
+     $('#trigger').click(function(){
+    	/*  $('.restart').css("display", "block"); */
+   	  	  $('#trigger').click(function(){
+   		  location.href="https://map.naver.com/v5/search/"+ result;/*  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" */
+   	  }); 
+   	  	//  int random =(int)(Math.random()*max);
+   	});
 }
+
 $('#trigger').click(function(){
-	  $('.notice').hide();
-	});
+	$('.notice').text("ⓘ추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내드립니다.");
+});
+
+
+/* for (int i = 0; i < 10; i++) { // i는 룰렛이 시도됐던 횟수 (처음에는 0회 시도 됐음)
+    int a = random() % 10;
+    // 기존에 이미 나왔으면 다시 돌림 (또는 ↓)
+    // 랜덤 수가 9(유니크)지만 룰렛이 n-1회 미만 시행 됐으면 다시 돌림  
+    // ex) n=9; 8회 미만 시행됐으면 다시 돌림 -> 8회 이상 시행 됐으면 현재 9회차이고 유니크 가능!
+    while (idx[a] != 0 || (a == 9 && i < n - 1)) {
+        a = random() % 10;
+    }
+    
+} 
+ */
+
+
+
+
 
 //public static void delay() { int delay = 1000; try { Thread.sleep(delay); } catch (InterruptedException e) { throw new RuntimeException(e); } }
 
