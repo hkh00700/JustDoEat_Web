@@ -16,12 +16,12 @@
 		</ul>
 	</div>
 
-	<div class='category' style='width:1200px;position: absolute;left: 50%; transform:translateX(-50%);'>
+	<div class='category' style='width:1200px; position: absolute;left: 50%; transform:translateX(-50%);'>
 		<ul>
-			<li><a href='<c:url value="/"/>'><img src='imgs/bi.png' alt='홈으로'/></a></li>
+			<li><a href='<c:url value="/"/>' class='${(empty category) ? "active" : ""}'><img src='imgs/bi.png' alt='홈으로'/></a></li>
 			<li><a href='list.cu' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
 			<li><a href='list.ga' class='${category eq "ga" ? "active" : ""}'>게임</a></li>
-			<li><a href='list.ma' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
+			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
 			<li><a href='list.my' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
 			<li><a href='list.bo' class='${category eq "bo" ? "active" : ""}'>게시판</a></li> 
 		</ul>
@@ -39,8 +39,8 @@ color: white;
 margin: 10px 50px 50px 10px;
 float:right;
 color: white;
-
 }
+
 .category{
 width:90%;
 margin-top:50px;
@@ -62,8 +62,8 @@ border-radius: 25px;
 padding: 10px;
 }
 
-header .category li a:hover, header .category li a.active 
-{ font-weight:bold; color:#0000cd; background-color: yellow;}
+header .category li a:hover, header .category li a.active
+{ font-weight:bold; color: #ffffff; background-color: #ef5b5b;}
 </style>   
 
 

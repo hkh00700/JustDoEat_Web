@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class GameDAO implements GameService {
 	@Autowired private SqlSession sql;
 	
-	//32개 추천음식 DB에서 가져오기
+	//32�� ���Ĺޱ�
 	public List<GameDTO> eatSelectRandom() {
 		List<GameDTO> list = sql.selectList("game.mapper.list");
 		for(GameDTO dto : list) {

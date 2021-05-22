@@ -4,24 +4,24 @@
 
 
 <select id="detail" resultType="board.BoardVO">
-	select board.*, (select m_nikname from member
+	select s_board.*, (select m_nikname from member
 	                 where member.m_id=writer) m_nikname 
-	from board where no=#{no}
+	from s_board where no=#{no}
 </select>
 
 <delete id="delete">
-	delete from board where no=#{no}
+	delete from s_board where no=#{no}
 </delete>
 
 <update id="update">
-	update board set s_title=#{s_title}, s_content=#{s_content}
+	update s_board set s_title=#{s_title}, s_content=#{s_content}
 			, s_photo=#{s_photo, jdbcType=VARCHAR}
 			, s_photo_path=#{s_photo_path, jdbcType=VARCHAR}
 	where no=#{no}
 </update>
 
 <update id="read">
-	update board set readcnt = readcnt + 1 where no=#{no}
+	update s_board set readcnt = readcnt + 1 where no=#{no}
 </update>
 
 <insert id="insert">
