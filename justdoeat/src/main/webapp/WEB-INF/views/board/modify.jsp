@@ -33,10 +33,10 @@ div#comment_regist span { width:50%; float:left; }
 <body>
 
 
-<form method="post" enctype="multipart/form-data" action="update.bo" >
+<form method="post" enctype="multipart/form-data" action="update.bo" style="margin-top: 50px;">
 
-<table style="margin: 0 auto; width: 1200px; border-top: 2px solid black;">
-<tr style="background-color: #ef5b5b;"> 
+<table style="margin: 0 auto;  width: 1200px; border-top: 2px solid black;">
+<tr style="background-color: #ef5b5b; "> 
 	<th class='wpx160' style="color: #ffffff">목록</th>
 	<td style="color: #ffffff">내용</td>
 </tr>
@@ -63,9 +63,9 @@ div#comment_regist span { width:50%; float:left; }
 </form>
 
 <div class='btnSet'>
-	<a class='btn-so' 
+	<a class='btn-so' style="border-radius: 15px 0 0 15px;"
 		onclick="if( necessary() ) { $('[name=attach]').val( $('#file-name').text() );  $('form').submit() }">저장</a>
-	<a class='btn-so' 
+	<a class='btn-so' style="border-radius: 0 15px 15px 0;"
 	onclick='$("form").attr("action","detail.bo"); $("form").submit()'>취소</a>
 </div>
 

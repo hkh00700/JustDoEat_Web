@@ -144,7 +144,7 @@ public class BoardController {
 	@Autowired private BoardPage page;
 	@RequestMapping("/list.bo")
 	public String list(HttpSession session
-			, @RequestParam(defaultValue="10") int pageList
+			, @RequestParam(defaultValue="5") int pageList
 			, @RequestParam(defaultValue="list") String viewType
 			, String search, String keyword
 			, @RequestParam(defaultValue="1") int curPage
