@@ -18,7 +18,7 @@
 
 	<div class='category' style='width:1200px; position: absolute;left: 50%; transform:translateX(-50%);'>
 		<ul>
-			<li><a href='<c:url value="/"/>' class='${(empty category) ? "active" : ""}'><img src='imgs/bi.png' alt='홈으로'/></a></li>
+			<li><a href='<c:url value="/"/>' id='job'><img src='imgs/bi.png' alt='홈으로'/></a></li>
 			<li><a href='list.cu' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
 			<li><a href='list.ga' class='${category eq "ga" ? "active" : ""}'>게임</a></li>
 			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
@@ -64,6 +64,10 @@ padding: 10px;
 
 header .category li a:hover, header .category li a.active
 { font-weight:bold; color: #ffffff; background-color: #ef5b5b;}
+#job:hover {
+background-color: #ffffff;
+}
+
 </style>   
 
 
