@@ -7,10 +7,10 @@
 		<ul>
 			<c:if test="${empty loginInfo}">
 			<li><a href='login'>로그인</a></li>
-			<li><a href='member'>회원가입</a></li>
+			<li><a href='memberjoin'>회원가입</a></li>
 			</c:if>
 			<c:if test="${!empty loginInfo}">
-			<li style='padding-right:10px'><strong>${loginInfo.m_nikname}</strong> 님</li>
+			<li style='padding-right:10px'><strong>${loginInfo.m_nickname}</strong> 님</li>
 			<li><a class='btn-fill' href='logout'>로그아웃</a></li>
 			</c:if>
 		</ul>
@@ -21,7 +21,7 @@
 			<li><a href='<c:url value="/"/>' id='job'><img src='imgs/bi.png' alt='홈으로'/></a></li>
 			<li><a href='list.cu' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
 			<li><a href='list.ga' class='${category eq "ga" ? "active" : ""}'>게임</a></li>
-			<li><a href='list.ma' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
+			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
 			<li><a href='list.my' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
 			<li><a href='list.bo' class='${category eq "bo" ? "active" : ""}'>게시판</a></li> 
 		</ul>
@@ -39,8 +39,8 @@ color: white;
 margin: 10px 50px 50px 10px;
 float:right;
 color: white;
-
 }
+
 .category{
 width:90%;
 margin-top:50px;

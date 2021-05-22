@@ -1,19 +1,8 @@
 package member;
 
 public class MemberVO {
-	private String m_uq;
-	private String m_email;
-	private String m_id;
-	private String m_pw;
-	private String m_name;
-	private String m_phone;
-	private String m_gender;
-	private String m_nikname;
-	private String m_addr1;
-	private String m_addr2;
-	private String kakao;
-	private String m_allergy;
-	private String admin;
+	private String m_uq, m_email, m_id, m_pw, m_name, m_phone, m_gender, m_nickname, m_addr1, m_addr2, m_allergy, admin, m_birth;
+	
 	public String getM_uq() {
 		return m_uq;
 	}
@@ -58,11 +47,11 @@ public class MemberVO {
 		this.m_gender = m_gender;
 	}
 	
-	public String getM_nikname() {
-		return m_nikname;
+	public String getM_nickname() {
+		return m_nickname;
 	}
-	public void setM_nikname(String m_nikname) {
-		this.m_nikname = m_nikname;
+	public void setM_nickname(String m_nikname) {
+		this.m_nickname = m_nikname;
 	}
 	public String getM_addr1() {
 		return m_addr1;
@@ -76,12 +65,6 @@ public class MemberVO {
 	public void setM_addr2(String m_addr2) {
 		this.m_addr2 = m_addr2;
 	}
-	public String getKakao() {
-		return kakao;
-	}
-	public void setKakao(String kakao) {
-		this.kakao = kakao;
-	}
 	public String getM_allergy() {
 		return m_allergy;
 	}
@@ -94,6 +77,11 @@ public class MemberVO {
 	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
-	
+	public String getM_birth() {
+		return m_birth;
+	}
+	public void setM_birth(String m_birth) {
+		this.m_birth = m_birth;
+	}
 	
 }
