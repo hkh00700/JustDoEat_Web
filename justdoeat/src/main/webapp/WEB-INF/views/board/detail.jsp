@@ -16,27 +16,43 @@
 }
 .popup { width:100%; height:100% }
 
+table { table-layout:fixed; border-collapse: collapse; }
+table, th, td {border: 1px solid #d3d8d9; border-left:none; border-right:none; padding: 10px 0;} 
+
+table td { overflow:hidden; 
+text-overflow:ellipsis; white-space:nowrap; }
+
+
+
+
 div#comment_regist span { width:50%; float:left; } 
+
+
 </style>
 </head>
 <body>
 
-<table>
+
+<div style="text-align: left; margin-left:365px; margin-top: 50px; margin-bottom: 15px;">
+조회수
+<span style="color: #ef5b5b">${vo.readcnt}</span>
+</div>
+<table style="margin: 0 auto; width: 1200px; border-top: 2px solid black;">
+<tr style="background-color: #ef5b5b;"> 
+	<th class='wpx160' style="color: #ffffff">목록</th>
+	<td style="color: #ffffff">내용</td>
+</tr>
 <tr><th class='wpx160'>제목</th>
-	<td colspan='5' class='left'>${vo.s_title}</td>
+	<td class='left'>${vo.s_title}</td>
 </tr>
-<tr><th>작성자</th>
+<tr><th class='wpx160'>작성자</th>
 	<td class='left'>${vo.m_nikname}</td>
-	<th class='wpx120'>작성일자</th>
-	<td class='wpx120'>${vo.updatetime}</td>
-	<th class='wpx60'>조회수</th>
-	<td class='wpx60'>${vo.readcnt}</td>
 </tr>
-<tr><th>내용</th>
-	<td colspan='5' class='left'>${fn: replace(vo.s_content, crlf, '<br>') }</td>
+<tr><th class='wpx160'>내용</th>
+	<td class='left'>${fn: replace(vo.s_content, crlf, '<br>') }</td>
 </tr>
-<tr><th>첨부파일</th>
-	<td colspan='5' class='left'><span>${vo.s_photo}</span>
+<tr><th class='wpx160'>첨부파일</th>
+	<td class='left'><span>${vo.s_photo}</span>
 		<c:if test="${!empty vo.s_photo}">
 		<span id='preview'></span>
 <%-- 		<a id='download' href='download.bo?id=${vo.no}' style='cursor:pointer; padding-left:15px'><i class="fas fa-download"></i></a> --%>
@@ -45,13 +61,13 @@ div#comment_regist span { width:50%; float:left; }
 </tr>
 </table>
 <div class='btnSet'>
-	<a class='btn-fill' onclick='$("form").submit()'>목록으로</a>
-	로그인한 사용자가 작성한 글인 경우만 수정/삭제 가능
+	<!-- <a class='btn-fill' onclick='$("form").submit()'>목록으로</a>
+	로그인한 사용자가 작성한 글인 경우만 수정/삭제 가능 -->
 	<c:if test="${loginInfo.m_id eq vo.writer}">
-	<a class='btn-fill' 
+	<a class='btn-so' style="border-radius: 15px 0 0 15px;"
 		onclick="$('form').attr('action', 'modify.bo');  $('form').submit()">수정</a>
 		
-	<a class='btn-fill' 
+	<a class='btn-so' style="border-radius: 0 15px 15px 0;"
 		onclick="if( confirm('정말 삭제?') ) { $('form').attr('action', 'delete.bo');  $('form').submit() }">삭제</a>
 	</c:if>
 </div>

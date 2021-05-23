@@ -1,21 +1,23 @@
 package common;
 
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -80,7 +82,90 @@ public class CommonService {
 	}
 	
 	
+	public String requestAPI(StringBuffer url, String property) {
+		String result = url.toString();
+		
+	    try {
+	        HttpURLConnection con 
+	        	= (HttpURLConnection)new URL(result).openConnection();
+	        con.setRequestMethod("GET");
+	        con.setRequestProperty("Content-type", "application/json");
+	        con.setRequestProperty("Authorization", property);
+	        
+	        int responseCode = con.getResponseCode();
+	        BufferedReader br;
+	        if(responseCode>=200 && responseCode<=300) { // 정상 호출
+	          br = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"));
+	        } else {  // 에러 발생
+	          br = new BufferedReader(new InputStreamReader(con.getErrorStream(), "utf-8"));
+	        }
+	        
+	        String inputLine;
+	        StringBuffer res = new StringBuffer();
+	        while ((inputLine = br.readLine()) != null) {
+	          res.append(inputLine);
+	        }
+	        br.close();
+	        con.disconnect();
+	        result = res.toString();
+	        
+	    } catch (Exception e) {
+	        System.out.println(e.getMessage());
+	    }
+	    
+		return result;
+	}
 	
+	public String requestAPI(StringBuffer url) {
+		String result = url.toString();
+		
+	    try {
+	        HttpURLConnection con 
+	        	= (HttpURLConnection)new URL(result).openConnection();
+	        con.setRequestMethod("GET");
+	        con.setRequestProperty("Content-type", "application/json");
+	        
+	        int responseCode = con.getResponseCode();
+	        BufferedReader br;
+	        if(responseCode>=200 && responseCode<=300) { // 정상 호출
+	          br = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"));
+	        } else {  // 에러 발생
+	          br = new BufferedReader(new InputStreamReader(con.getErrorStream(), "utf-8"));
+	        }
+	        
+	        String inputLine;
+	        StringBuffer res = new StringBuffer();
+	        while ((inputLine = br.readLine()) != null) {
+	          res.append(inputLine);
+	        }
+	        br.close();
+	        con.disconnect();
+	        result = res.toString();
+	        
+	    } catch (Exception e) {
+	        System.out.println(e.getMessage());
+	    }
+	    System.out.println(result);
+		return result;
+	}
+	
+	public Map<String, Object> json_list(StringBuffer url) {
+		JSONObject json = null;
+		json = new JSONObject(requestAPI(url)); //response
+		json = json.getJSONObject("response");
+		json = json.getJSONObject("body");
+		int count = 0;
+		if( json.has("totalCount") ) {
+			count = json.getInt("totalCount");
+		}
+		if( json.get("items") instanceof JSONObject )
+			json = json.getJSONObject("items");
+		else
+			json.put("item", "");
+		
+		json.put("count", count);
+		return json.toMap();
+	}
 	
 	
 	

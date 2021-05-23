@@ -1,13 +1,26 @@
-package member;
+package admin;
 
-public class MemberVO {
-	private String m_uq, m_email, m_id, m_pw, m_name, m_phone, m_gender, m_nickname, m_addr1, m_addr2, m_allergy, admin, m_birth;
+public class CustomerVO {
+	public String m_email, m_id, m_pw, m_name, m_phone, m_gender, m_nikname, m_addr1, m_addr2, m_allergy, admin;
+	public int m_uq;
+
 	
-	public String getM_uq() {
-		return m_uq;
+	//회원검색할 때 쓰는 vo
+	public String keyword, search;
+	
+	
+	
+	public String getKeyword() {
+		return keyword;
 	}
-	public void setM_uq(String m_uq) {
-		this.m_uq = m_uq;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	public String getM_email() {
 		return m_email;
@@ -21,7 +34,6 @@ public class MemberVO {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
-	
 	public String getM_pw() {
 		return m_pw;
 	}
@@ -46,12 +58,11 @@ public class MemberVO {
 	public void setM_gender(String m_gender) {
 		this.m_gender = m_gender;
 	}
-	
-	public String getM_nickname() {
-		return m_nickname;
+	public String getM_nikname() {
+		return m_nikname;
 	}
-	public void setM_nickname(String m_nikname) {
-		this.m_nickname = m_nikname;
+	public void setM_nikname(String m_nikname) {
+		this.m_nikname = m_nikname;
 	}
 	public String getM_addr1() {
 		return m_addr1;
@@ -77,11 +88,14 @@ public class MemberVO {
 	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
-	public String getM_birth() {
-		return m_birth;
+	public int getM_uq() {
+		return m_uq;
 	}
-	public void setM_birth(String m_birth) {
-		this.m_birth = m_birth;
+	public void setM_uq(int m_uq) {
+		this.m_uq = m_uq;
 	}
 	
+	
+	
+
 }
