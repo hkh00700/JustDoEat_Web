@@ -25,8 +25,9 @@ public class GameController {
 	 * "login"); return "game/roulette"; }
 	 */
 	@RequestMapping("/list.ga")
-	public String eatSelectRandom(HttpServletRequest req, Model model ) {
+	public String eatSelectRandom(HttpServletRequest req, Model model, HttpSession session) {
 		System.out.println("eatSelectRandom()");
+		session.setAttribute("category", "ga");
 		model.addAttribute("edtos", service.eatSelectRandom());
 		return "game/roulette";
 	

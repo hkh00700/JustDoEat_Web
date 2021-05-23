@@ -7,14 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>공지사항 수정</h3>
 <form method="post" enctype="multipart/form-data" action="update.no">
 <table>
 <tr><th class='wpx160'>제목</th>
-	<td><input type='text' class='need' title='제목' name='title' value='${vo.title}' /></td>
+	<td><input type='text' class='need' title='제목' name='s_title' value='${vo.s_title}' /></td>
 </tr>
 <tr><th>내용</th>
-	<td><textarea class='need' title='내용' name='content'>${vo.content}</textarea></td>
+	<td><textarea class='need' title='내용' name='s_content'>${vo.s_content}</textarea></td>
 </tr>
 <tr><th>첨부파일</th>
 	<td class='left'>
@@ -27,7 +26,7 @@
 	</td>
 </tr>
 </table>
-<input type='hidden' name='id' value='${vo.id}' />
+<input type='hidden' name='no' value='${vo.no}' />
 <input type='hidden' name='attach'/>
 </form>
 <div class='btnSet'>
