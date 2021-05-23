@@ -74,7 +74,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 <ul class='grid'>
 	<c:forEach items="${page.list}" var="vo">
 	<li><div><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
-		<div>${vo.m_nikname}</div>
+		<div>${vo.m_nickname}</div>
 		<div>${vo.updatetime}<span style="float:right;">
 			${empty vo.s_photo ? '' 
 			: '<img src="imgs/attach.png" class="file-img"/>'}</span></div>
@@ -97,7 +97,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 	<td>사진</td>
 	<td class='left'><a onclick="go_detail(${vo.no})">${vo.s_title}</a></td>
 <%-- 	<td>${empty vo.s_photo ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td> --%>
-	<td>${vo.m_nikname}</td>
+	<td>${vo.m_nickname}</td>
 	<td>${vo.updatetime}</td>
 </tr>
 </c:forEach>

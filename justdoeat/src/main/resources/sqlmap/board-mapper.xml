@@ -5,7 +5,7 @@
 
 <select id="detail" resultType="board.BoardVO">
 	select s_board.*, (select m_nikname from member
-	                 where member.m_id=writer) m_nikname 
+	                 where member.m_id=writer) m_nickname 
 	from s_board where no=#{no}
 </select>
 
@@ -54,7 +54,7 @@
 </select>
 <select id="list" resultType="board.BoardVO">
 	select b.*, (select m_nikname from member
-	             where member.m_id=writer) m_nikname 
+	             where member.m_id=writer) m_nickname 
 	from (select b.*, rownum od  
 	      from (select * from s_board <include refid="where_search"/> 
 	            order by no) b 

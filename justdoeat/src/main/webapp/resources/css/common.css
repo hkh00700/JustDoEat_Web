@@ -85,7 +85,22 @@ a.btn-so {
 	box-sizing: border-box;
 	color: white;
 	line-height: 26px;
-	
+	border-radius: 15px 0 0 15px;
+}
+a.btn-not {
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	margin: 0 14px 0 0;
+	padding: 11px 25px 10px;
+	background-color: #ef5b5b;
+	text-align: center;
+	border: none;
+	font-size: 25px;
+	box-sizing: border-box;
+	color: white;
+	line-height: 26px;
+	border-radius: 0 15px 15px 0;
 }
 
 a.btn-empty {
