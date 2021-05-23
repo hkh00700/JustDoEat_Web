@@ -43,7 +43,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"><
 
 <tiles:insertAttribute name="adminbody" /> 
 
-<div id="content" style="width:1200px; margin:0 auto; margin-top:60px;">
+<div id="content" style="width:1200px; margin:0 auto; margin-top:60px; margin-bottom: 60px;">
 <tiles:insertAttribute name="content"/>
 </div>
 <tiles:insertAttribute name="footer" />
