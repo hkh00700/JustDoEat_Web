@@ -13,7 +13,6 @@ public class MemberDAO implements MemberService {
 	
 	@Override
 	public MemberVO member_login(HashMap<String, String> map) {
-		
 		return sql.selectOne("member.mapper.login", map);
 	}
 	
