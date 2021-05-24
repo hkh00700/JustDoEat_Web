@@ -7,6 +7,7 @@
 	<result column="m_nikname" property="m_nickname" />	
 </resultMap>
 
+
 <select id="id_check" resultType="integer">
 	select count(*) from member where m_id=#{id}
 </select>
@@ -34,5 +35,4 @@
 <select id="login" resultType="member.MemberVO" resultMap="membercc">
 		select * from member where m_id=#{m_id} and m_pw=#{m_pw}
 </select>	
-
 </mapper>

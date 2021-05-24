@@ -16,7 +16,6 @@ public class MemberDAO implements MemberService {
 		return sql.selectOne("member.mapper.login", map);
 	}
 	
-	
 	@Override
 	public boolean member_social_id(MemberVO vo) {
 		return (Integer)sql.selectOne("member.mapper.social_id", vo) == 0 

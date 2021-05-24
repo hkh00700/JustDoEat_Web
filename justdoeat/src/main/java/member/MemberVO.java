@@ -50,8 +50,8 @@ public class MemberVO {
 	public String getM_nickname() {
 		return m_nickname;
 	}
-	public void setM_nickname(String m_nikname) {
-		this.m_nickname = m_nikname;
+	public void setM_nickname(String m_nickname) {
+		this.m_nickname = m_nickname;
 	}
 	public String getM_addr1() {
 		return m_addr1;
