@@ -57,18 +57,22 @@ a:link, a:visited {
 	margin-bottom: 50px;
 }
 
+.ad_btnSet {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 a.btn-fill, a.btn-empty {
 	text-align: center;
 	padding: 3px 10px;
 	border: none;
 	border-radius: 3px;
-	box-shadow: 2px 2px 3px #022d72;
+	box-shadow: 2px 2px 3px #ff8787;
 }
 
 a.btn-fill {
 	background-color: #ef5b5b;
 	color: white;
-	font-weight: bold;
 	margin-left: 2px;
 }
 

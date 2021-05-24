@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <!DOCTYPE html>
 <html>
 <style>
@@ -65,7 +65,7 @@
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text" value="서구청 맛집" id="keyword" size="15"> 
+                    키워드 : <input type="text" value="${food }" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> 
                 </form>
             </div>
