@@ -15,6 +15,7 @@ import java.util.UUID;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -119,7 +120,35 @@ public class CommonService {
 		return file;
 	}
 	
-	
+	public String fileUpload(String category
+			, MultipartFile file, HttpServletRequest request) {
+		
+//		String resources  =  session.getServletContext().getRealPath("resources");
+		String resources  =  request.getSession().getServletContext().getRealPath("resources");
+		String app = request.getRequestURL().toString().replace(request.getRequestURI(), "")+request.getContextPath() + "/" ;
+		
+		//Study_Spring/.metadata/.../smart/resources
+		//    /upload/notice/2021/04/22
+		String folder 
+		=  resources + "/upload/" + category + "/" 
+		+ new SimpleDateFormat("yyyy/MM/dd").format(new Date()); 
+		
+		File dir = new File(folder);
+		if( ! dir.exists() ) dir.mkdirs();
+		
+		String uuid = UUID.randomUUID().toString() + "_"
+					+ file.getOriginalFilename();
+		
+		try {
+			file.transferTo( new File(folder, uuid) );
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return app + folder.substring(resources.length()+1) 
+						+ "/" + uuid;
+		}
+		
+			
 	public String fileUpload(String category
 					, MultipartFile file, HttpSession session) {
 		
