@@ -39,7 +39,7 @@
 		</td>
 	</tr>
 	<tr><th>닉네임</th>
-		<td class='left'><input type='text' name='m_nickname' class='chk' value="${mypage.m_nickname}"/><a class='btn-fill-s' id='btn-nik'>중복확인</a><br>
+		<td class='left'><input type='text' name='m_nickname' class='chk chked' value="${mypage.m_nickname}"/><a class='btn-fill-s' id='btn-nik' style="display: none">중복확인</a><br>
 		<div class='valid'>닉네임을 입력하세요</div>
 		</td>
 	</tr>
@@ -76,6 +76,7 @@
 <script type="text/javascript">
 
 var fm_id = "${mypage.m_id}";
+var fm_nik = "${mypage.m_nickname}";
 
 function go_modify(){
 	if( $('[name=m_name]').val()=='' ){
@@ -142,6 +143,16 @@ $('[name=m_id]').on('keyup', function(){
 	}else {
 		$(this).removeClass('chked');
 		$("#btn-id").css("display", "inline-block");
+	}
+});
+
+$('[name=m_nickname]').on('keyup', function(){
+	if($(this).val() == fm_nik){
+		$(this).addClass('chked');
+		$("#btn-nik").css("display", "none");
+	}else {
+		$(this).removeClass('chked');
+		$("#btn-nik").css("display", "inline-block");
 	}
 });
 

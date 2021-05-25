@@ -44,7 +44,7 @@ function after(date){
 <p class='wpct40 right' 
 style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항목입니다</p>
 <form method="post" action="join">
-<table class='wpct40'>
+<table class='wpct40 centertable'>
 	<tr><th class='wpx120'>* 성명</th>
 		<td class='left'><input type='text' name='m_name' /></td>
 	</tr>
