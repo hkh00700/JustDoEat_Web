@@ -14,14 +14,14 @@ public class MapController {
 	
 	@RequestMapping("/search.map")
 	public String searchMap(String food, Model model, HttpSession session, HttpServletRequest req) {
-		System.out.println("맵 음식 : " + food );
 		model.addAttribute("food", food);
 		req.setAttribute(food, "food");
 		return "map";
 	}
 	
 	@RequestMapping("/map")
-	public String mapview() {
+	public String mapview(HttpSession session) {
+		session.setAttribute("category", "ma");
 		return "map";
 	}
 	
