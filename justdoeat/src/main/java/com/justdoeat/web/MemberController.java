@@ -195,8 +195,6 @@ public class MemberController {
 		map.put("m_pw", m_pw);
 		System.out.println("아이디 비번: "+ m_id + m_pw);
 		MemberVO vo = service.member_login(map);
-		System.out.println("vo : " + vo);
-		System.out.println(vo.getM_nickname());
 		session.setAttribute("loginInfo", vo);
 
 		return vo==null ? false : true;

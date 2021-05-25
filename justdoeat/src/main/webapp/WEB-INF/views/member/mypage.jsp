@@ -4,21 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel='stylesheet' type='text/css' 
+	href='css/member.css?v=<%=new java.util.Date().getTime()%>'>
 <title>Insert title here</title>
-<style type="text/css">
-	input[name=m_addr1] { width:calc(100% - 14px); }
-	.valid, .invalid { font-size:13px; font-weight:bold; }
-	.valid { color:green }
-	.invalid { color:red }
-</style>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
+<div class="content">
 <h3>회원정보 수정</h3>
 <form method="post" action="mypage_modify">
 <input type="hidden" name="m_email" value="${mypage.m_email }"/>
-<table class='wpct40'>
+<table class='wpct40 centertable'>
 
 	<tr><th class='wpx120'>성명</th>
 		<td class='left'><input type='text' name='m_name' value="${mypage.m_name }" /></td>
@@ -66,14 +64,23 @@
 </form>
 <div class='btnSet'>
 <a class='btn-fill' onclick='go_modify()'>수정</a>
-<a class='btn-empty' href='javascript:history.go(-1)'>취소</a>
+<a class='btn-empty' onclick='cancel()'>취소</a>
 </div>
-
+</div>
 
 <script type="text/javascript" 
 	src="js/join_check.js?v=<%=new java.util.Date().getTime()%>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
+
+function cancel() {
+	if(confirm("정말 취소하겠습니까?")){
+		location.href='<c:url value="/"/>';
+		alert("취소되었습니다!")
+    }else {
+        return false;
+    }
+}
 
 var fm_id = "${mypage.m_id}";
 var fm_nik = "${mypage.m_nickname}";
