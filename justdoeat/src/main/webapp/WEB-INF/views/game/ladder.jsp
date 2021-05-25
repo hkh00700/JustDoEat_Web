@@ -157,11 +157,11 @@ color: #3F51B5;
 <body>
 <div class="content">
 
-<img style="position:absolute; top: 50px; margin-left:-165px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/f1.png' alt="f1" id="f1" />
-<img style="position:absolute; top: 50px; margin-left:-90px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/f2.png' alt="f2" id="f2"/>
-<img style="position:absolute; top: 50px; margin-left:-15px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/f3.png' alt="f3" id="f3"/>
-<img style="position:absolute; top: 50px; margin-left:60px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/f4.png' alt="f4" id="f4"/>
-<img style="position:absolute; top: 50px; margin-left:135px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/f5.png' alt="f5" id="f5"/>
+<img style="position:absolute; top: 50px; margin-left:-165px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/fruit1.png' alt="f1" id="f1" />
+<img style="position:absolute; top: 50px; margin-left:-90px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/fruit2.png' alt="f2" id="f2"/>
+<img style="position:absolute; top: 50px; margin-left:-15px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/fruit3.png' alt="f3" id="f3"/>
+<img style="position:absolute; top: 50px; margin-left:60px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/fruit4.png' alt="f4" id="f4"/>
+<img style="position:absolute; top: 50px; margin-left:135px; width: 60px; height: 60px; z-index: 1;" class="f" src='imgs/fruit5.png' alt="f5" id="f5"/>
 <img style="top: 80px; " class="ladder" src='imgs/ladder.png' alt="사다리" id="ladder"/>
 <h5 style="position:absolute; margin-top: -365px; margin-left: 1000px;"><a href="./list.ga">룰렛 게임하기</a></h5>
    <h3>추천 메뉴 리스트</h3>
@@ -217,15 +217,28 @@ $("#restart").click(function(){
 		}, 2000);	 */
 });
 
+/* var openNewWindow = window.open("about:blank");
+_.once() = function(func){
+	var flag, result;
+	return function(){
+  		 if(openNewWindow){ return result};
+  		flag = true;
+  		return result = func.apply(this. argument);
+	 }
+}
+var ch = _.once(function(){ openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh"	})
+ */
+
 function random() {
 	var rand1 = Math.round(Math.random()*5);
 	console.log(rand1);
 
 		 
 	setTimeout(() => {
-		 document.getElementById("ladder").src = "imgs/ladder.png"
 		$('#trigger').text("추천음식"); 
+		 document.getElementById("ladder").src = "imgs/ladder.png"
 		$('#ladder').css('filter','blur(7px)');
+		 
 	}, 0);
 	setTimeout(() => {
 		$('#ladder').css('filter','blur(0px)');
@@ -276,8 +289,10 @@ function random() {
     	/*  $('.restart').css("display", "block"); */
    	  	  $('#trigger').click(function(){
    	  	 var openNewWindow = window.open("about:blank");
-		  	 openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
-   	 	  });
+		  	openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
+   	 	  //	ch();
+   	  	  
+   	  	  });
 			$('.restart>img').css("display","inline-block");
 			$('#trigger').text("추천음식");
 		 var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 사다리타기가 다시 진행됩니다.<br/>';
@@ -289,6 +304,10 @@ function random() {
  		setTimeout(() => {
  			 document.getElementById("ladder").src = "imgs/ladder.png"
  			$('#trigger').text("추천음식"); 
+ 			$('.restart>img').css("display","inline-block");
+ 			 var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 사다리타기가 다시 진행됩니다.<br/>';
+ 			no_result = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
+ 			$('.notice').text(no_result);
  			$('#ladder').css('filter','blur(7px)');
  		}, 0);
  		setTimeout(() => {
