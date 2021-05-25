@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<header style='text-align:left; padding:15px 0; height:204px; border-bottom:1px solid #ccc; align-self: center;'>
+<header style='text-align:left; padding:15px 0; height:204px; border-bottom:1px solid #ccc; align-self: center; '>
 	
-	<div class='log' style='margin-right:100px; position:absolute; left:50%; top:25px; width: 1200px; transform:translateX(-50%);'>
+	<div class='log' style='margin-right:100px; position:absolute; left:50%; top:25px; transform:translateX(-50%);'>
 		<ul>
 			<c:if test="${empty loginInfo}">
 			<li><a href='login'>로그인</a></li>
@@ -35,7 +35,7 @@
 </header> 
 <style>
 .log{
-width: 90%;
+width: 64%;
 background-color: navy;
 height: 40px;
 color: white;
