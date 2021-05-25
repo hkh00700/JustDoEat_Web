@@ -69,14 +69,14 @@ text-overflow:ellipsis; white-space:nowrap; }
 </form>	
 </div>
 
-<div id='data-list' style='margin:0 auto'>
+<div id='data-list' style='margin:0 auto; width: 1200px; border-top: 1px solid black;'>
 <c:if test="${page.viewType eq 'grid'}"> <!-- 바둑판형태 -->
 <ul class='grid'>
 	<c:forEach items="${page.list}" var="vo">
 	<li>
-		<div><img style="width: 200px; height: 150px;" src="${vo.s_photo_path }"></div>
+		<div style="background-color: #E2E2E2;"><img style="width: 200px; height: 150px;" src="${vo.s_photo_path }" onerror="this.style.display='none'"/></div>
 <!-- 		<div><img style="width: 200px; height: 150px;" src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg"></div> -->
-		<div><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
+		<div style="margin-top: 10px;"><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
 		<div>${vo.m_nickname}</div>
 		<div>${vo.updatetime}</div>
 	</li>
@@ -96,7 +96,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 <tr style="height: 91px;">
 	<td>${vo.no}</td>
 	
-	<td><img src="${vo.s_photo_path }" width="70" height="70"/></td> 
+	<td><img src="${vo.s_photo_path }" width="70" height="70" onerror="this.style.display='none'"/></td> 
 <!-- 	<td><img src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg" width="70" height="70"/></td>  -->
 	<td class='left'><a onclick="go_detail(${vo.no})">${vo.s_title}</a></td>
 <%-- 	<td>${empty vo.s_photo ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td> --%>
