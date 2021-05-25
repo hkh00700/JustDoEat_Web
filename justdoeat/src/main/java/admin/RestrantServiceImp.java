@@ -38,15 +38,18 @@ public class RestrantServiceImp implements RestrantService {
 	}
 
 	@Override
-	public RestrantVO ad_restrant_detail(int m_uq) {
-		// TODO Auto-generated method stub
-		return null;
+	public RestrantVO ad_restrant_detail(int r_uq) {
+		return dao.ad_restrant_detail(r_uq);
 	}
 
 	@Override
-	public int ad_restrant_delete(int m_uq) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int ad_restrant_delete(int r_uq) {
+		return dao.ad_restrant_delete(r_uq);
+	}
+
+	@Override
+	public int ad_rstrant_modify(RestrantVO vo) {
+		return dao.ad_rstrant_modify(vo);
 	}
 
 }

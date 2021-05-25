@@ -72,8 +72,8 @@ public class CommonService {
 	
 	public String r_fileUpload(MultipartFile file, HttpSession session) {
 		//업로드할 서버의 물리적 위치
-		String resources = "http://192.168.0.67:8989/justdo_eat/resources/";
-		
+//		String resources = "http://192.168.0.67:8989/justdo_eat/resources/";
+		String resources = session.getServletContext().getRealPath("resources");		
 		//Study_Spring/.metadata/..../smart/resources/upload/notice/2021/04/22
 		//String folder =  resources + "/upload/" + category + "/" + new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 		
@@ -82,6 +82,7 @@ public class CommonService {
 		//if( ! dir.exists() ) dir.mkdirs();	//mkdirs()를 하게 되면 하위 폴더까지 생성이 됨.
 		
 		String uuid = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+		try { file.transferTo( new File(resources, uuid)); }catch (Exception e) {  System.out.println(e.getMessage()); }
 		
 		/*
 		 * try { file.transferTo( new File(folder, uuid)); }catch (Exception e) {

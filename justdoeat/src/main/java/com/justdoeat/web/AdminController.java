@@ -39,6 +39,29 @@ public class AdminController {
 		
 	}
 	
+	//가게 정보 삭제
+	@RequestMapping("/r_delete.ad")
+	public String s_delete(int r_uq) {
+		rservice.ad_restrant_delete(r_uq);
+		return "redirect:store.ad";
+	}
+	
+	//가게 정보 수정
+	@RequestMapping("/s_modify.ad")
+	public String s_modify(RestrantVO vo) {
+		rservice.ad_rstrant_modify(vo);
+		return"redirect:store.ad";
+	}
+	
+	//가게 상세목록
+	@RequestMapping("/s_detail.ad")
+	public String s_detail(int r_uq, Model model) {
+		model.addAttribute("vo", rservice.ad_restrant_detail(r_uq));
+		RestrantVO vo = rservice.ad_restrant_detail(r_uq);
+		model.addAttribute("list", service.customer_detail(vo.getM_uq()));
+		return "admin/s_detail";
+	}
+	
 	@RequestMapping("/store.ad")
 	public String storelist(HttpSession session, Model model ) {
 		session.setAttribute("ad_category", "store");
@@ -75,7 +98,7 @@ public class AdminController {
 		 //나중에 마이페이지로 가게 수정
 		 
 			
-			return "redirect:home";
+			return "home";
 	}
 	
 	//가게 회원가입 페이지
@@ -120,7 +143,7 @@ public class AdminController {
 	public String member_detail(HttpSession session, Model model, int m_uq) {
 		System.out.println(m_uq);
 		model.addAttribute("vo", service.customer_detail(m_uq));
-		return "member/mypage";
+		return "admin/detail";
 	}
 	
 	//회원전체목록 조회
