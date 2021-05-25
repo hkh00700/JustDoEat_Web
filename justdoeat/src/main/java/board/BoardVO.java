@@ -5,7 +5,7 @@ import java.sql.Date;
 public class BoardVO {
 	private int no, od, readcnt;
 	private String s_photo;
-	private String s_title, s_content, m_nikname, writer, s_photo_path;
+	private String s_title, s_content, m_nickname, writer, s_photo_path;
 	private Date updatetime;
 	public int getNo() {
 		return no;
@@ -44,11 +44,11 @@ public class BoardVO {
 		this.s_content = s_content;
 	}
 	
-	public String getM_nikname() {
-		return m_nikname;
+	public String getM_nickname() {
+		return m_nickname;
 	}
-	public void setM_nikname(String m_nikname) {
-		this.m_nikname = m_nikname;
+	public void setM_nikname(String m_nickname) {
+		this.m_nickname = m_nickname;
 	}
 	public String getWriter() {
 		return writer;

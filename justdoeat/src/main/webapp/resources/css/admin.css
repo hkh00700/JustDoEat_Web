@@ -40,6 +40,26 @@ table {
 	
 }
 
+.ad_btnSet{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+}
+
+.ad_btn-fill {
+	background-color: #ef5b5b;
+	color: white;
+	margin-left: 2px;
+}
+
+.ad_btn-fill:hover {
+	background-color: #ffffff;
+	border: 1px solid #ef5b5b;
+	color: #ef5b5b;
+	margin-left: 2px;
+}
+
+
 .adbtn-fill {
 	display: inline-block;
 	width: 100px;

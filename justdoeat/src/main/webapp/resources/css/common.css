@@ -57,18 +57,22 @@ a:link, a:visited {
 	margin-bottom: 50px;
 }
 
+.ad_btnSet {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 a.btn-fill, a.btn-empty {
 	text-align: center;
 	padding: 3px 10px;
 	border: none;
 	border-radius: 3px;
-	box-shadow: 2px 2px 3px #022d72;
+	box-shadow: 2px 2px 3px #ff8787;
 }
 
 a.btn-fill {
 	background-color: #ef5b5b;
 	color: white;
-	font-weight: bold;
 	margin-left: 2px;
 }
 
@@ -85,7 +89,23 @@ a.btn-so {
 	box-sizing: border-box;
 	color: white;
 	line-height: 26px;
-	
+	border-radius: 15px 0 0 15px;
+}
+
+a.btn-not {
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	margin: 0 14px 0 0;
+	padding: 11px 25px 10px;
+	background-color: #ef5b5b;
+	text-align: center;
+	border: none;
+	font-size: 25px;
+	box-sizing: border-box;
+	color: white;
+	line-height: 26px;
+	border-radius: 0 15px 15px 0;
 }
 
 a.btn-empty {
@@ -159,7 +179,6 @@ ul {
 	margin: 0;
 	display: flex;
 	float: left;
-	
 }
 
 #list-top ul li * {
@@ -179,31 +198,32 @@ ul {
 }
 
 #select {
-	border-radius: 15px 0 0 15px; 
-	display: inline-block; 
-	height: 48px; 
-	font-size: 16px; 
+	border-radius: 15px 0 0 15px;
+	display: inline-block;
+	height: 48px;
+	font-size: 16px;
 	padding: 0 0 0 20px;
- 	background-color: #040c50;
- 	color: white;
+	background-color: #040c50;
+	color: white;
 }
 
-option { font-size: 15px;}
-
+option {
+	font-size: 15px;
+}
 
 #ser ul li:last-child {
-	border : 1px solid black;
+	border: 1px solid black;
 	border-radius: 0 15px 15px 0;
 	width: 70px;
-  	height: 30px;
-  	padding: 8px 47px 8px 48px;
-  	background-color: #040c50;
-  	display: inline-block;
-}
-#ser ul li:last-child {
-	color : white;
+	height: 30px;
+	padding: 8px 47px 8px 48px;
+	background-color: #040c50;
+	display: inline-block;
 }
 
+#ser ul li:last-child {
+	color: white;
+}
 
 select {
 	height: 32px;
@@ -230,26 +250,35 @@ textarea[name=s_content] {
 }
 
 ul.grid {
-	width: 80%;
-	margin: 0 10%
+	width: 1120px;
+	margin: 0 auto;
 }
-/* ul.grid li { float:left; width:19%; height:150px; */
-/* 	border:1px solid gray; box-sizing:border-box;   */
-/* } */
+
+ul.grid li {
+	float: left;
+	width: 200px;
+	height: 250px;
+	box-sizing: border-box;
+	border-radius: 0 0 25px 25px;
+	background-color: #ef5b5b;
+}
+
 ul.grid li:not(:nth-child(5n)) {
-	margin: 0 1.25% 20px 0
+	margin: 0 2.67% 20px 0;
 }
 
 ul.grid li div {
 	text-align: left;
-	padding: 10px;
 }
 
 ul.grid li div:nth-child(1) {
-	height: 60px;
+	height: 150px;
 }
 
 ul.grid li div:nth-child(2) {
+	padding: 0 10px;
+}
+ul.grid li div:not(:nth-child(1)) {
 	padding: 0 10px;
 }
 

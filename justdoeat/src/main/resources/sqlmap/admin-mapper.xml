@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin.mapper">
+
+	<select id="rlist" resultType="admin.RestrantVO">
+		select * from restaurantaddr order by hire_data
+	</select>
+
+	<insert id="resInsert">
+		insert into restaurantaddr(restaurant, r_latitude, r_hardness, r_address, r_tel, r_menu, r_imgpath, m_uq, hire_data)
+		values (#{restaurant}, #{r_latitude}, #{r_hardness}, #{r_address}, #{r_tel}, #{r_menu}, #{r_imgpath, jdbcType=VARCHAR}, #{m_uq}, sysdate)
+	</insert>
+	
 	<select id="list" resultType="admin.CustomerVO">
 		select * from member order by m_nikname
 	</select>

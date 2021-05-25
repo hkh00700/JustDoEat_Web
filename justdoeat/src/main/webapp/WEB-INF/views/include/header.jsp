@@ -21,6 +21,7 @@
 			<li><a href='<c:url value="/"/>' id='job'><img src='imgs/bi.png' alt='홈으로'/></a></li>
 			<li><a href='<c:url value="/"/>' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
 			<li><a href='list.ga' class='${category eq "ga" ? "active" : ""}'>게임</a></li>
+<<<<<<< HEAD
 			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
 			<c:if test="${empty loginInfo}">
 				<li><a href='login'>마이페이지</a></li> 
@@ -28,7 +29,20 @@
 			<c:if test="${!empty loginInfo }">
 				<li><a href='mypage' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
 			</c:if>
+=======
+			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li>
+>>>>>>> 04ed793340249dd754a36ce50dfb9112e1f7143e
 			<li><a href='list.bo' class='${category eq "bo" ? "active" : ""}'>게시판</a></li> 
+			<c:set var="admin" value="${loginInfo.admin }"/>
+			<c:choose>
+				<c:when test="${admin eq 'Y' }">
+				<li><a href='list.ad'>관리자페이지</a></li> 
+				</c:when>
+				<c:otherwise>
+				<li><a href='mypage' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
+				</c:otherwise>
+			</c:choose>
+						
 		</ul>
 	</div>
 </header> 
@@ -58,7 +72,7 @@ line-height: 160px;
 
 header ul, header ul li { margin:0; padding:0; display:inline; }
 header .category { font-size:18px; }
-header .category ul li:first-child{ margin-right: 495px }
+header .category ul li:first-child{ margin-right: 470px }
 header .category li:not(:first-child) { padding-left:30px }
 header .category li a {
 height: 50px;

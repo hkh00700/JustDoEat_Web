@@ -21,6 +21,9 @@ public class BoardDAO implements BoardService {
 		(Integer)sql.selectOne("board.mapper.totalList", page) );
 		List<BoardVO> list = sql.selectList("board.mapper.list", page); 
 		page.setList(list);
+		for (BoardVO boardVO : page.getList()) {
+			System.out.println(boardVO.getM_nickname());
+		}
 		return page;	
 	}
 	

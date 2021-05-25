@@ -27,7 +27,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 	<td><input type='text' name='s_title' class='need' title='제목' /></td>
 </tr>
 <tr><th>작성자</th>
-	<td class='left'>${loginInfo.m_nikname}</td>
+	<td class='left'>${loginInfo.m_nickname}</td>
 </tr>
 <tr><th>내용</th>
 	<td><textarea name='s_content' class='need' title='내용' ></textarea>
@@ -36,7 +36,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 <tr><th>파일첨부</th>
 	<td class='left'>
 		<label>
-			<input type='file' name='file' id='attach-file' />
+			<input type='file' name='file' id='attach-file'  accept="image/*" />
 			<img src='imgs/select.png' class='file-img' />	
 		</label>
 		<span id='file-name'></span>
@@ -48,9 +48,9 @@ text-overflow:ellipsis; white-space:nowrap; }
 </form>
 
 <div class='btnSet'>
-	<a class='btn-so' style="border-radius: 15px 0 0 15px;"
+	<a class='btn-so'
 		onclick="if( necessary() ) { $('form').submit() }">저장</a>
-	<a class='btn-so' style="border-radius: 0 15px 15px 0;" href='list.bo'>취소</a>
+	<a class='btn-not'  href='list.bo'>취소</a>
 </div>
 
 <script type="text/javascript" src="js/empty_check.js"></script>
