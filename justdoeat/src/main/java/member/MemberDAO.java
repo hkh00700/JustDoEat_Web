@@ -43,21 +43,27 @@ public class MemberDAO implements MemberService {
 
 	@Override
 	public MemberVO member_load(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return sql.selectOne("member.mapper.mypage", id);
 	}
 
 
 	@Override
-	public int member_update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public boolean member_update(MemberVO vo) {
+		return sql.update("member.mapper.member_update", vo)>0 
+				? true : false;
 	}
 
 
 	@Override
-	public boolean member_id_check(String id) {
-		return (Integer)sql.selectOne("member.mapper.id_check", id)==0 
+	public boolean member_id_check(String m_id) {
+		return (Integer)sql.selectOne("member.mapper.id_check", m_id)==0 
+				? true : false;
+	}
+
+
+	@Override
+	public boolean member_nik_check(String m_nickname) {
+		return (Integer)sql.selectOne("member.mapper.nik_check", m_nickname)==0 
 				? true : false;
 	}
 	

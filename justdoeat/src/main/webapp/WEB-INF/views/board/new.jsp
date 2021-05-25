@@ -36,7 +36,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 <tr><th>파일첨부</th>
 	<td class='left'>
 		<label>
-			<input type='file' name='file' id='attach-file' />
+			<input type='file' name='file' id='attach-file'  accept="image/*" />
 			<img src='imgs/select.png' class='file-img' />	
 		</label>
 		<span id='file-name'></span>

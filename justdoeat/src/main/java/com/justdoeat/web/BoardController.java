@@ -2,6 +2,7 @@ package com.justdoeat.web;
 
 import java.io.File;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -51,7 +52,7 @@ public class BoardController {
 	@RequestMapping("/update.bo")
 	public String update(BoardVO vo, MultipartFile file
 						, String attach, Model model
-						, HttpSession session) {
+						, HttpSession session, HttpServletRequest request) {
 		//변경전 방명록 정보를 조회
 		BoardVO board = service.board_detail(vo.getNo());
 		String uuid = session.getServletContext().getRealPath("resources")
@@ -59,7 +60,7 @@ public class BoardController {
 		//첨부파일이 있는 경우
 		if( !file.isEmpty() ) {
 			vo.setS_photo( file.getOriginalFilename() );
-			vo.setS_photo_path( common.fileUpload("board", file, session));
+			vo.setS_photo_path( common.fileUpload("board", file, request));
 			
 			//변경해서 첨부한 경우
 			if( board.getS_photo()!=null ) {
@@ -119,12 +120,12 @@ public class BoardController {
 	
 	
 	@RequestMapping("/insert.bo")
-	public String insert(BoardVO vo, HttpSession session
+	public String insert(BoardVO vo, HttpSession session, HttpServletRequest request
 							, MultipartFile file) {
 		if( ! file.isEmpty() ) {
 			vo.setS_photo( file.getOriginalFilename() );
 			vo.setS_photo_path( 
-				common.fileUpload("board", file, session) );
+				common.fileUpload("board", file, request) );
 		}
 		vo.setWriter( 
 			((MemberVO)session.getAttribute("loginInfo")).getM_id() 

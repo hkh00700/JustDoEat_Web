@@ -33,17 +33,19 @@ public class MemberServiceImpl implements MemberService {
 	}
 	@Override
 	public MemberVO member_load(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.member_load(id);
 	}
 	@Override
-	public int member_update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public boolean member_update(MemberVO vo) {
+		return dao.member_update(vo);
 	}
 	@Override
-	public boolean member_id_check(String id) {
-		return dao.member_id_check(id);
+	public boolean member_id_check(String m_id) {
+		return dao.member_id_check(m_id);
+	}
+	@Override
+	public boolean member_nik_check(String m_nickname) {
+		return dao.member_nik_check(m_nickname);
 	}
 	
 	

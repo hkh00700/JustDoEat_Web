@@ -74,7 +74,8 @@ text-overflow:ellipsis; white-space:nowrap; }
 <ul class='grid'>
 	<c:forEach items="${page.list}" var="vo">
 	<li>
-		<div><img style="width: 200px; height: 150px;" src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg"></div>
+		<div><img style="width: 200px; height: 150px;" src="${vo.s_photo_path }"></div>
+<!-- 		<div><img style="width: 200px; height: 150px;" src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg"></div> -->
 		<div><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
 		<div>${vo.m_nickname}</div>
 		<div>${vo.updatetime}</div>
@@ -94,7 +95,9 @@ text-overflow:ellipsis; white-space:nowrap; }
 <c:forEach items="${page.list}" var="vo">
 <tr style="height: 91px;">
 	<td>${vo.no}</td>
-	<td><img src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg" width="70" height="70"/></td> 
+	
+	<td><img src="${vo.s_photo_path }" width="70" height="70"/></td> 
+<!-- 	<td><img src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg" width="70" height="70"/></td>  -->
 	<td class='left'><a onclick="go_detail(${vo.no})">${vo.s_title}</a></td>
 <%-- 	<td>${empty vo.s_photo ? '' : '<img class="file-img" src="imgs/attach.png" />'}</td> --%>
 	<td>${vo.m_nickname}</td>

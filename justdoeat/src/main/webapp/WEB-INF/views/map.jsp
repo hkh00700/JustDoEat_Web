@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"	%> 
+
+
+=======
     
+>>>>>>> 04ed793340249dd754a36ce50dfb9112e1f7143e
 <!DOCTYPE html>
 <html>
 <style>
@@ -57,16 +63,21 @@
 	<title>다음 지도 API</title>
 </head>
 <body>
-
 <div class="map_wrap">
     <div id="map"></div>
-
+	
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
+<<<<<<< HEAD
+                
+             키워드 : <input type="text" value="광주 ${food }" id="keyword" size="15"> 
+                    <button type="submit">검색하기</button>
+=======
                     키워드 : <input type="text" value="${food }" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> 
+>>>>>>> 04ed793340249dd754a36ce50dfb9112e1f7143e
                 </form>
             </div>
         </div>
