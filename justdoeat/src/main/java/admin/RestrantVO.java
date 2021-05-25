@@ -1,6 +1,6 @@
 package admin;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class RestrantVO {
 	public String restaurant;
@@ -13,8 +13,18 @@ public class RestrantVO {
 	public String r_imgpath;
 	public int m_uq;
 	public Date hire_data;
+		
+	public int r_uq;
 	
 	
+	
+	
+	public int getR_uq() {
+		return r_uq;
+	}
+	public void setR_uq(int r_uq) {
+		this.r_uq = r_uq;
+	}
 	public String getR_latitude() {
 		return r_latitude;
 	}

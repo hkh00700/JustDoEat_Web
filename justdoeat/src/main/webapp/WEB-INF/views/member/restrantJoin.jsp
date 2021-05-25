@@ -40,7 +40,7 @@
 
 		<tr><th>*사진첨부</th>
 		<td class='left wpx300'>
-			<label><input  type="file" name="imgpath" id="attach-file" />
+			<label><input  type="file" name="imgpath" id="attach-file" accept="image/*"/>
 			<img src="imgs/select.png" class='file-img'/>
 			</label>
 			<span id="file-name"></span>
