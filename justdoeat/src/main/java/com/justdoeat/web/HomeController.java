@@ -23,8 +23,8 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpSession session, Model model) {
-		//session.setAttribute("category", "");
-		session.removeAttribute("category");
+		session.setAttribute("category", "");
+		//session.removeAttribute("category");
 		String s = null;
 		
 		//숫자 랜덤으로 뽑기

@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin.mapper">
+
+	<delete id="r_delete">
+		delete from restaurantaddr where r_uq = #{r_uq}
+	</delete>
+
+	<update id="r_modify">
+		update restaurantaddr set restaurant = #{restaurant}, r_address = #{r_address}, r_tel = #{r_tel},
+		r_menu = #{r_menu} where r_uq = #{r_uq}
+	</update>
+		
+	<select id="r_detail" resultType="admin.RestrantVO">
+		select * from restaurantaddr where r_uq = #{r_uq}
+	</select>
+
+	<select id="rlist" resultType="admin.RestrantVO">
+		select * from restaurantaddr order by hire_data desc
+	</select>
+
+	<insert id="resInsert">
+		insert into restaurantaddr(restaurant, r_latitude, r_hardness, r_address, r_tel, r_menu, r_imgpath, m_uq, hire_data)
+		values (#{restaurant}, #{r_latitude}, #{r_hardness}, #{r_address}, #{r_tel}, #{r_menu}, #{r_imgpath, jdbcType=VARCHAR}, #{m_uq}, sysdate)
+	</insert>
+	
 	<select id="list" resultType="admin.CustomerVO">
 		select * from member order by m_nikname
 	</select>

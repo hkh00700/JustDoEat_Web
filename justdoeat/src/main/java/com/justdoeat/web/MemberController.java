@@ -9,11 +9,13 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
+
 import member.MemberServiceImpl;
 import member.MemberVO;
 
@@ -28,13 +30,30 @@ public class MemberController {
 	
 	//마이페이지 이동
 	@RequestMapping("/mypage")
-	public String mypage() {
+	public String mypage(Model model, HttpSession session) {
+		model.addAttribute("mypage", service.member_load(((MemberVO)session.getAttribute("loginInfo")).getM_id()));
+		session.setAttribute("category", "my");
 		return "member/mypage";
 	}
 	
+
+	//마이페이지 수정
+	@RequestMapping(value="/mypage_modify")
+	public String mypage_modify(MemberVO vo, HttpServletRequest request
+							, HttpSession session) {
+		//화면에서 입력한 정보를 DB에 저장한 후 홈화면으로 연결
+		session.setAttribute("category", "my");
+	
+		service.member_update(vo);
+		
+		return "redirect:/";
+	}
+	
+
 	//카카오로그인 요청
 	@RequestMapping("/kakaoLogin")
 	public String kakaoLogin(HttpSession session) {
+
 		
 		String state = UUID.randomUUID().toString();
 		session.setAttribute("state", state);
@@ -72,7 +91,6 @@ public class MemberController {
 				"https://kapi.kakao.com/v2/user/me");
 		json = new JSONObject ( 
 			common.requestAPI(url, token_type + " " + access_token) );
-		
 		if( !json.isEmpty() ) {
 			MemberVO vo = new MemberVO();
 			
@@ -82,27 +100,23 @@ public class MemberController {
 			vo.setM_email( json.getString("email") );
 			vo.setM_gender( json.getString("gender")
 								.equals("female") ? "여" : "남" );
-		
-			
 			if( service.member_social_id(vo) )
 				service.member_social_update(vo);
 			else {
-				
 				service.member_social_insert(vo);
 			}
 			session.setAttribute("loginInfo", vo);
 		}
-		
 		return "redirect:/";
 	}
 	
-	//네이버아이디로그인시 콜백
+	
 		@RequestMapping("/navercallback")
 		public String naverCallback(HttpSession session, String state
 					, @RequestParam(required = false) String code 
 					, @RequestParam(required = false) String error) {
 
-			//상태토큰이 불일치하거나, 콜백실패로 에러발생시 토큰발급 불가
+		
 			String token = (String)session.getAttribute("state");
 			if( !token.equals(state) || error!=null ) {
 				return "redirect:/";
@@ -122,12 +136,12 @@ public class MemberController {
 					"https://openapi.naver.com/v1/nid/me");
 			json = new JSONObject(common.requestAPI(url, token_type + " " + access_token));
 			if( json.getString("resultcode").equals("00") ) {
-				//프로필정보는 response에 있음
+			
 				json = json.getJSONObject("response");
 				System.out.println("json : " + json);
 				MemberVO vo = new MemberVO();
 				vo.setM_gender( json.getString("gender").equals("F") 
-						? "여" : "남");
+						? "�뿬" : "�궓");
 				vo.setM_nickname(json.getString("nickname"));
 				vo.setM_name( json.has("name") ? json.getString("name") : "" );
 				vo.setM_id(json.getString("id"));
@@ -148,7 +162,7 @@ public class MemberController {
 	
 	@RequestMapping("/naverLogin")
 	public String naverlogin(HttpSession session) {
-		//토큰으로 사용할 문자열을 랜덤하게 생성
+		
 		String state = UUID.randomUUID().toString();
 		session.setAttribute("state", state);
 		
@@ -166,6 +180,7 @@ public class MemberController {
 	@RequestMapping("/login")
 	public String login(HttpSession session) {
 		session.setAttribute("category", "login");
+		
 		return "member/login";
 	}
 	
@@ -178,14 +193,14 @@ public class MemberController {
 				= new HashMap<String, String>();
 		map.put("m_id", m_id);
 		map.put("m_pw", m_pw);
+		System.out.println("아이디 비번: "+ m_id + m_pw);
 		MemberVO vo = service.member_login(map);
-		
-		session.setAttribute("loginInfo", vo);
+		System.out.println("vo : " + vo);
 		System.out.println(vo.getM_nickname());
+		session.setAttribute("loginInfo", vo);
+
 		return vo==null ? false : true;
 	}
-	
-	
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
@@ -196,40 +211,43 @@ public class MemberController {
 			return "redirect:/";
 	}
 	
-	//아이디중복확인 요청
 	@ResponseBody @RequestMapping("/id_check")
-	public boolean id_check(String id) {
+	public boolean id_check(String m_id) {
 		//화면에서 입력한 아이디가 DB에 존재하는지 여부를 확인해 반환
-		return service.member_id_check(id);
+		return service.member_id_check(m_id);
 	}
 	
+	//닉네임 중복확인 요청
+		@ResponseBody @RequestMapping("/nik_check")
+		public boolean nik_check(String m_nickname) {
+			//화면에서 입력한 닉네임이 DB에 존재하는지 여부를 확인해 반환
+			return service.member_nik_check(m_nickname);
+		}
+	
 	//회원가입처리 요청
+
 	@ResponseBody @RequestMapping(value="/join"
 						, produces="text/html; charset=utf-8" )
 	public String join(MemberVO vo, HttpServletRequest request
 							, HttpSession session) {
-		//화면에서 입력한 정보를 DB에 저장한 후 홈화면으로 연결
 		StringBuffer msg = new StringBuffer(
 				"<script type='text/javascript'>");
 		
-		service.member_join(vo);
 		if( service.member_join(vo)==1 ) {
-			msg.append("alert('회원가입을 축하합니다^^'); location='"
+			msg.append("alert('�쉶�썝媛��엯�쓣 異뺥븯�빀�땲�떎^^'); location='"
 							+ request.getContextPath() + "'; ");
 		}else {
-			msg.append("alert('회원가입 실패ㅠㅠ'); location='member'; ");	
+			msg.append("alert('�쉶�썝媛��엯 �떎�뙣�뀪�뀪'); location='member'; ");	
 		}
 		msg.append("</script>");
 		return msg.toString();
 	}
 	
-	//회원가입화면 요청
+	
 	@RequestMapping("/memberjoin")
 	public String member(HttpSession session) {
 		session.setAttribute("category", "join");
 		return "member/join";
 	}
-		
-	
 	
 }

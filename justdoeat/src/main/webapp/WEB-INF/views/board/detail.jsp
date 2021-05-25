@@ -46,7 +46,7 @@ div#comment_regist span { width:50%; float:left; }
 	<td class='left'>${vo.s_title}</td>
 </tr>
 <tr><th class='wpx160'>작성자</th>
-	<td class='left'>${vo.m_nikname}</td>
+	<td class='left'>${vo.m_nickname}</td>
 </tr>
 <tr><th class='wpx160'>내용</th>
 	<td class='left'>${fn: replace(vo.s_content, crlf, '<br>') }</td>
@@ -64,10 +64,10 @@ div#comment_regist span { width:50%; float:left; }
 	<!-- <a class='btn-fill' onclick='$("form").submit()'>목록으로</a>
 	로그인한 사용자가 작성한 글인 경우만 수정/삭제 가능 -->
 	<c:if test="${loginInfo.m_id eq vo.writer}">
-	<a class='btn-so' style="border-radius: 15px 0 0 15px;"
+	<a class='btn-so' 
 		onclick="$('form').attr('action', 'modify.bo');  $('form').submit()">수정</a>
 		
-	<a class='btn-so' style="border-radius: 0 15px 15px 0;"
+	<a class='btn-not' 
 		onclick="if( confirm('정말 삭제?') ) { $('form').attr('action', 'delete.bo');  $('form').submit() }">삭제</a>
 	</c:if>
 </div>

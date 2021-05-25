@@ -49,7 +49,7 @@ div#comment_regist span { width:50%; float:left; }
 <tr><th>파일첨부</th>
 	<td class='left'>
 		<label>
-			<input type='file' name='file' id='attach-file' />
+			<input type='file' name='file' id='attach-file' accept="image/*" />
 			<img src='imgs/select.png' class='file-img' />	
 		</label>
 		<span id='file-name'>${vo.s_photo}</span>
@@ -63,9 +63,9 @@ div#comment_regist span { width:50%; float:left; }
 </form>
 
 <div class='btnSet'>
-	<a class='btn-so' style="border-radius: 15px 0 0 15px;"
+	<a class='btn-so' 
 		onclick="if( necessary() ) { $('[name=attach]').val( $('#file-name').text() );  $('form').submit() }">저장</a>
-	<a class='btn-so' style="border-radius: 0 15px 15px 0;"
+	<a class='btn-not' 
 	onclick='$("form").attr("action","detail.bo"); $("form").submit()'>취소</a>
 </div>
 

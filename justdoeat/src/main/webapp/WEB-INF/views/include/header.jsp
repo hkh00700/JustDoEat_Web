@@ -22,7 +22,13 @@
 			<li><a href='<c:url value="/"/>' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
 			<li><a href='list.ga' class='${category eq "ga" ? "active" : ""}'>게임</a></li>
 			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
-			<li><a href='mypage' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
+			<c:if test="${empty loginInfo}">
+				<li><a href='login'>마이페이지</a></li> 
+			</c:if>
+			<c:if test="${!empty loginInfo }">
+				<li><a href='mypage' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
+			</c:if>
+			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li>
 			<li><a href='list.bo' class='${category eq "bo" ? "active" : ""}'>게시판</a></li> 
 		</ul>
 	</div>
@@ -53,7 +59,7 @@ line-height: 160px;
 
 header ul, header ul li { margin:0; padding:0; display:inline; }
 header .category { font-size:18px; }
-header .category ul li:first-child{ margin-right: 495px }
+header .category ul li:first-child{ margin-right: 470px }
 header .category li:not(:first-child) { padding-left:30px }
 header .category li a {
 height: 50px;

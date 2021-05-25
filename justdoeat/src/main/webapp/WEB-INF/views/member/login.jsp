@@ -77,10 +77,8 @@ function go_login(){
 		data: { m_id:$('#userid').val(), m_pw:$('#userpw').val() },
 		success: function( response ){
 			if( response ){
-				//목록인 경우는 목록에 있고, 목록이 아닌 경우는 홈으로
 				location.href = document.referrer.match(/list/g) 
 					? document.referrer : '<c:url value="/"/>';
-				
 			}else{
 				alert('아이디나 비밀번호가 일치하지 않습니다!');
 			}

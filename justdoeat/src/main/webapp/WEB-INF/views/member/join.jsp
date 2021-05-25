@@ -12,8 +12,7 @@
 	.invalid { color:red }
 </style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script type="text/javascript" 
-src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	var today = new Date();
@@ -45,7 +44,7 @@ function after(date){
 <p class='wpct40 right' 
 style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항목입니다</p>
 <form method="post" action="join">
-<table class='wpct40'>
+<table class='wpct40 centertable'>
 	<tr><th class='wpx120'>* 성명</th>
 		<td class='left'><input type='text' name='m_name' /></td>
 	</tr>
@@ -91,9 +90,9 @@ style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항�
 	</tr>
 	<tr><th>주소</th>
 		<td class='left'><a class='btn-fill-s' onclick='daum_post()'>우편번호찾기</a>
-			<input type='text' name='post' class='wpx60' readonly /><br>
+			<input type='text' name='m_post' class='wpx60' readonly /><br>
 			<input type='text' name='m_addr1' readonly />
-			<input type='text' name='m_addr1' />
+			<input type='text' name='m_addr2' />
 		</td>
 	</tr>
 	
@@ -133,6 +132,23 @@ function go_join(){
 		}
 	}
 	
+	//닉네임 중복확인을 한 경우 이미 사용중이라면 회원가입불가
+	if( $('[name=m_nickname]').hasClass('chked') ){
+		if( $('[name=m_nickname]').siblings('div').hasClass('invalid') ){
+			alert('회원가입 불가!\n' + join.m_nickname.unUsable.desc );
+			$('[name=m_nickname]').focus();
+			return;
+		}
+	}else{
+	//아이디는 중복확인을 하지 않은 경우
+		if( ! item_check( $('[name=m_nickname]') ) ) return; 	
+		else{
+			alert('회원가입 불가\n'+ join.m_nickname.valid.desc );
+			$('[name=m_nickname]').focus();
+			return;
+		}
+	}
+	
 	
 	if( ! item_check( $('[name=m_pw]') ) ) return; 
 	if( ! item_check( $('[name=pw_check]') ) ) return; 
@@ -161,7 +177,7 @@ function id_check(){
 	var $m_id = $('[name=m_id]');
 	if( $m_id.hasClass('chked') ) return;
 		
-	var data = join.tag_status( $m_id  );
+	var data = join.tag_status( $m_id );
 	if( data.code=='invalid' ){
 		alert( '아이디 중복확인 불필요\n' +  data.desc );
 		$m_id.focus();
@@ -185,10 +201,43 @@ function id_check(){
 	
 }
 
-$('.chk').on('keyup', function(){
-	if( $(this).attr('m_name')=='m_id' ){
+$('#btn-nik').on('click', function(){
+	nik_check();
+});
+
+function nik_check(){
+	var $m_nickname = $('[name=m_nickname]');
+	if( $m_nickname.hasClass('chked') ) return;
+		
+	var data = join.tag_status( $m_nickname );
+	if( data.code=='invalid' ){
+		alert( '닉네임 중복확인 불필요\n' +  data.desc );
+		$m_nickname.focus();
+		return;
+	}
+	
+	$.ajax({
+		type: 'post',
+		url: 'nik_check',
+		data: { m_nickname:$m_nickname.val() },
+		success: function(response){
+			if( response ) response = join.m_nickname.usable;
+			else  response = join.m_nickname.unUsable;
+			display_status( response, $m_nickname.siblings('div') );
+			$m_nickname.addClass('chked');
+			
+		},error: function(req, text){
+			alert(text+':'+req.status);
+		}
+	});
+	
+}
+
+$('.chk').on('keyup', function(){ 
+	if( $(this).attr('name')=='m_id' ||  $(this).attr('name')=='m_nickname'  ){
 		if( event.keyCode==13 ){
-			id_check();
+			 if( $(this).attr('name')=='m_id'  ) id_check();
+			 else nik_check();
 		}else{
 			$(this).removeClass('chked');
 			validate( $(this) );
@@ -226,8 +275,8 @@ function daum_post(){
 			var address = data.userSelectedType == 'R' 
 				? data.roadAddress : data.jibunAddress;
 			if( data.buildingName!='' ) address += ' ('+data.buildingName+')';
-			$('[name=m_addr1]').eq(0).val( address );
-			$('[name=m_addr1]:eq(1)').val('');
+			$('[name=m_addr1]').val( address );
+			$('[name=m_addr2]').val('');
 		}
 	}).open();
 }

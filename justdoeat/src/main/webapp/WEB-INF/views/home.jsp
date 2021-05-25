@@ -7,7 +7,7 @@
 
 <style type="text/css">
 .content {
-height: 700px;
+margin-bottom: 20px;
 }
 
 h1{
@@ -52,13 +52,26 @@ cursor: pointer;
 <body>
 	<div class="content">
 		<h1>오늘의 메뉴</h1>
-		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select'>선택</a>
+		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select' href="search.map?food=${food }">선택</a>
 		
 		<br/><br/><br/><br/>
 		선택 버튼을 누르시면 자세한 오늘의 메뉴 정보를 확인하실 수 있습니다.<br/>
 		<다시추천> 을 누르시면 자세한 오늘의 메뉴를 다시 추천 받으실 수 있습니다.
 		
 	</div>
+	
+	<div id="restrant_box">
+		<c:if test="${empty loginInfo}">
+		<a href="login">
+		</c:if>
+		<c:if test="${!empty loginInfo }">
+		<a href="restrantJoin.ad?m_uq=${loginInfo.m_uq }">
+		</c:if>
+		<img src="imgs/arrow.png" height="100px" width="100px">내가게 등록하기
+		</a>
+	
+	</div>
+	
 </body>
 </html>
 

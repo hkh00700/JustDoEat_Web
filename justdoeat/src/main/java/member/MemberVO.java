@@ -1,8 +1,22 @@
 package member;
 
 public class MemberVO {
-	private String m_uq, m_email, m_id, m_pw, m_name, m_phone, m_gender, m_nickname, m_addr1, m_addr2, m_allergy, admin, m_birth;
+	private String m_uq, m_email, m_id, m_pw, m_name, m_phone, m_gender, m_nickname, m_addr1, m_addr2, m_allergy, admin, m_birth, m_tel[], m_post;
 	
+	
+	public String getM_post() {
+		return m_post;
+	}
+	public void setM_post(String m_post) {
+		this.m_post = m_post;
+	}
+	public String[] getM_tel() {
+		return m_tel;
+	}
+	public void setM_tel(String m_tel[]) {
+		this.m_tel = m_tel;
+		m_phone=String.join("-",m_tel);
+	}
 	public String getM_uq() {
 		return m_uq;
 	}
@@ -21,7 +35,6 @@ public class MemberVO {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
-	
 	public String getM_pw() {
 		return m_pw;
 	}
@@ -39,6 +52,7 @@ public class MemberVO {
 	}
 	public void setM_phone(String m_phone) {
 		this.m_phone = m_phone;
+		m_tel = m_phone.split("-");
 	}
 	public String getM_gender() {
 		return m_gender;
@@ -50,8 +64,8 @@ public class MemberVO {
 	public String getM_nickname() {
 		return m_nickname;
 	}
-	public void setM_nickname(String m_nikname) {
-		this.m_nickname = m_nikname;
+	public void setM_nickname(String m_nickname) {
+		this.m_nickname = m_nickname;
 	}
 	public String getM_addr1() {
 		return m_addr1;
