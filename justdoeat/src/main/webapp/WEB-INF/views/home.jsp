@@ -52,7 +52,7 @@ cursor: pointer;
 <body>
 	<div class="content">
 		<h1>오늘의 메뉴</h1>
-		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select'>선택</a>
+		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select' href="search.map?food=${food }">선택</a>
 		
 		<br/><br/><br/><br/>
 		선택 버튼을 누르시면 자세한 오늘의 메뉴 정보를 확인하실 수 있습니다.<br/>

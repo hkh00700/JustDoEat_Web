@@ -22,7 +22,12 @@
 			<li><a href='<c:url value="/"/>' class='${category eq "cu" ? "active" : ""}'>홈</a></li> 
 			<li><a href='list.ga' class='${category eq "ga" ? "active" : ""}'>게임</a></li>
 			<li><a href='map' class='${category eq "ma" ? "active" : ""}'>지도</a></li> 
-			<li><a href='mypage' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
+			<c:if test="${empty loginInfo}">
+				<li><a href='login'>마이페이지</a></li> 
+			</c:if>
+			<c:if test="${!empty loginInfo }">
+				<li><a href='mypage' class='${category eq "my" ? "active" : ""}'>마이페이지</a></li> 
+			</c:if>
 			<li><a href='list.bo' class='${category eq "bo" ? "active" : ""}'>게시판</a></li> 
 		</ul>
 	</div>

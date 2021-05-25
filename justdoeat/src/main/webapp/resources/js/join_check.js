@@ -5,11 +5,12 @@
 var join = { 
 	tag_status: function(tag){
 		var data = tag.val();
-		tag = tag.attr('m_name');
+		tag = tag.attr('name');
 		if( tag == 'm_id' ) data = this.m_id_status(data);
 		else if ( tag == 'm_pw' ) data = this.m_pw_status(data);
 		else if ( tag == 'pw_check' ) data = this.pw_check_status(data);
 		else if ( tag == 'm_email' ) data = this.m_email_status(data);
+		else if ( tag == 'm_nickname') data = this.m_nickname_status(data);
 		return data;
 	},
 	
@@ -58,6 +59,7 @@ var join = {
 		empty: { code:'invalid', desc:'입력하세요' },
 		space: { code:'invalid', desc:'공백없이 입력하세요' },
 		min: { code:'invalid', desc:'최소 5자이상 입력하세요' },
+		min2: { code:'invalid', desc:'최소 2자이상 입력하세요' },
 		max: { code:'invalid', desc:'최대 10자이하 입력하세요' },
 	},
 	
@@ -66,6 +68,20 @@ var join = {
 		unUsable: { code:'invalid', desc:'이미 사용중인 아이디입니다' },
 		valid: { code:'valid', desc:'아이디 중복확인하세요' },
 		invalid: { code:'invalid', desc:'아이디는 영문소문자,숫자만 입력가능' }
+	},
+	
+	m_nickname: {
+		usable: { code:'valid', desc:'사용가능한 닉네임입니다' },
+		unUsable: { code:'invalid', desc:'이미 사용중인 닉네임입니다' },
+		valid: { code:'valid', desc:'닉네임 중복확인하세요' },
+	},
+	
+	m_nickname_status: function( m_nickname ){
+		if( m_nickname=='' ) return this.common.empty;
+		else if ( m_nickname.match(space) ) return this.common.space;
+		else if ( m_nickname.length < 2 ) return this.common.min2; 
+		else if ( m_nickname.length > 10 ) return this.common.max; 
+		else return this.m_nickname.valid; 
 	},
 	
 	m_id_status: function( m_id ){
