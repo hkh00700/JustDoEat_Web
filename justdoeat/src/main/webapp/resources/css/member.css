@@ -2,8 +2,8 @@
 
 input[name=m_addr1] { width:calc(100% - 14px); }
 .valid, .invalid { font-size:13px; font-weight:bold; }
-.valid { color:green }
-.invalid { color:red }
+.valid { color:#040c50 }
+.invalid { color:#f38b8b }
 
 *{margin: 0 auto;}
 

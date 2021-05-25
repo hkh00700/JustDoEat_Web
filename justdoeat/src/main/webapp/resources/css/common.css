@@ -117,13 +117,12 @@ a.btn-empty {
 a.btn-fill-s {
 	text-align: center;
 	padding: 1px 10px;
-	border: 1px solid #c4dafc;
+	border: 1px solid #f38b8b;
 	border-radius: 3px;
-	box-shadow: 2px 2px 2px #022d72;
+	box-shadow: 2px 2px 2px #c0c0c0;
 	font-size: 13px;
-	font-weight: bold;
-	background-color: #b1cdfa;
-	color: #0000cd;
+	background-color: #f38b8b;
+	color: #FFFFFF;
 }
 
 input {
