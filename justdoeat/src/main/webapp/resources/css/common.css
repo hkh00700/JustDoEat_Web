@@ -235,7 +235,7 @@ input[name=s_title] {
 }
 
 textarea[name=s_content] {
-	width: calc(100% - 6px);
+	width: 1027px;
 	height: 150px;
 	resize: none;
 }
@@ -270,6 +270,7 @@ ul.grid li:not(:nth-child(5n)) {
 
 ul.grid li div {
 	text-align: left;
+	color: white;
 }
 
 ul.grid li div:nth-child(1) {
