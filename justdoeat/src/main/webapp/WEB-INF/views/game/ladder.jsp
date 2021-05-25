@@ -221,7 +221,20 @@ function random() {
 	var rand1 = Math.round(Math.random()*5);
 	console.log(rand1);
 
-		 setTimeout(() => {
+		 
+	setTimeout(() => {
+		 document.getElementById("ladder").src = "imgs/ladder.png"
+		$('#trigger').text("추천음식"); 
+		$('#ladder').css('filter','blur(7px)');
+	}, 0);
+	setTimeout(() => {
+		$('#ladder').css('filter','blur(0px)');
+	}, 2000);
+	
+	
+	
+	
+	setTimeout(() => {
 	        if(rand1==0){
 	        	document.getElementById("ladder").src = "imgs/ladder1.png"
 	            $('#trigger').text(document.getElementById("resultA").value);
@@ -254,7 +267,7 @@ function random() {
 	             $(".content li:nth-of-type(5)").css("font-size","25px");
 	             $(".content li:not(:nth-of-type(5))").css("font-size","20px");
 	          }   
-	   }, 1000);
+	   }, 2000);
 }
 
 	
@@ -277,13 +290,13 @@ function random() {
  			 document.getElementById("ladder").src = "imgs/ladder.png"
  			$('#trigger').text("추천음식"); 
  			$('#ladder').css('filter','blur(7px)');
- 		}, 1000);
+ 		}, 0);
  		setTimeout(() => {
  			$('#ladder').css('filter','blur(0px)');
  		}, 2000);
  		
  			
- 		$('#trigger').click(function(){
+ 		 $('#trigger').click(function(){
  	   	  	 
  			$('.restart>img').css("display","inline-block");
  			if(openW==0){
@@ -293,7 +306,7 @@ function random() {
  			}else{
  				openW++;
  			}
-	 	 });
+	 	 }); 
  			
  			//	$('#trigger').text("추천음식");
  		
