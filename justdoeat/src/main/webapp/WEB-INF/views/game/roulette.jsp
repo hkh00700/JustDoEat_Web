@@ -123,8 +123,9 @@ display:none;
 
 }
 .notice{ 
-height: 100px;
-
+ display:inline-block;
+ white-space : pre-line; 
+ margin: 10px;
  }
 
 </style>
@@ -133,6 +134,7 @@ height: 100px;
 <div class="content">
 <img src='imgs/pin.png'alt="룰렛핀" id="pin"/>
 <img style="transform: rotate(0deg);top: 80px; left: -592px;" class="roulette" src='imgs/roulette.png' alt="룰렛" id="roulette"/>
+<h5 style="position:absolute; margin-top: -400px; margin-left: 1000px;"><a href="./eatSelectRandom">사다리타기 게임하기</a></h5>
    <h3>추천 메뉴 리스트</h3>
    <div class="menu">
    <table>
@@ -164,6 +166,7 @@ height: 100px;
 	    
 	  </div>  
 	    <br/><br/><h4 class='notice'>ⓘ START버튼을 누르시면 게임이 시작됩니다.</h4>
+	  
    	  
    </div>
 </div>
@@ -245,8 +248,8 @@ $("#restart").click(function(){
      $('#trigger').click(function(){
     	/*  $('.restart').css("display", "block"); */
    	  	  $('#trigger').click(function(){
-   	  		 
-   		  	 location.href="https://map.naver.com/v5/search/"+ result;/*  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" */
+   	  		 var openNewWindow = window.open("about:blank");
+   		  	 openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
    		  			 
    		  			
    	 	  });
@@ -260,13 +263,15 @@ $("#restart").click(function(){
 });  
  */
  
- var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 룰렛이 다시 돌아갑니다.';
+ var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 룰렛이 다시 돌아갑니다.<br/>';
 	result = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
 
 $('#trigger').click(function(){
 	console.log(result);
 	$('.notice').text(result);
 });
+
+
 /* 
  $('.restart>img').click(function(){
 	 random();
