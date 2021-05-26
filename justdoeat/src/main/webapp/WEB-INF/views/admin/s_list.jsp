@@ -15,21 +15,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#search_box ul li {
+		float: left;
+	}
+	
+	#search_box ul li a {
+		cursor: pointer;
+	}
+</style>
 </head>
 <body>
+<h3>전체 가게목록</h3>
 <form action="r_search" method="get">
 	<div id='search_box'>
 		<ul>
 			<li>
-				<select name="">
-					<option></option>
+				<select name="search">
+					<option value='all' ${search.search eq 'all' ? 'selected' : ''}>전체</option>
+					<option value="restaurant" ${search.search eq 'restaurant' ? 'selected' : ''}>가게이름</option>
+					<option value="r_address" ${search.search eq 'r_address' ? 'selected' : ''}>가게주소</option>
+					<option value="r_menu" ${search.search eq 'r_menu' ? 'selected' : ''}>가게메뉴</option>
 				</select>
 			</li>
+			<li><input type="text" name="keyword" value='${search.keyword }'/></li>
+			<li><a class='btn-fill'onclick="$('form').submit()">검색</a></li>
 		</ul>
 	</div>
 </form>
 
-<h3>전체 가게목록</h3>
 <table>
 	<tr>
 		<th><%=tm %></th>
@@ -41,7 +55,7 @@
 	<tr>
 		<th class='wpx100'>가게이름</th>
 		<th class='wpx100'>가게주소</th>
-		<th class='wpx100'>가게전화번호</th>
+		<th class='wpx100'>전화번호</th>
 		<th class='wpx100'>가게메뉴</th>
 		<th class='wpx100'>등록일자</th>
 	</tr>

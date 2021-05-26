@@ -54,4 +54,9 @@ public class RestrantDAO implements RestrantService{
 		return sql.update("admin.mapper.r_modify", vo);
 	}
 
+	@Override
+	public List<RestrantVO> ad_restrant_search(RestrantVO list) {
+		return sql.selectList("admin.mapper.slist", list);
+	}
+
 }

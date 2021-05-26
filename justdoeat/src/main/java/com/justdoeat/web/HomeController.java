@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import board.BoardServiceImpl;
 import recommand.RecommandDTO;
 import recommand.RecommandServiceimpl;
 
@@ -17,6 +18,7 @@ import recommand.RecommandServiceimpl;
 @Controller
 public class HomeController {
 	@Autowired private RecommandServiceimpl service;
+	@Autowired private BoardServiceImpl bservice;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -26,6 +28,9 @@ public class HomeController {
 		session.setAttribute("category", "");
 		//session.removeAttribute("category");
 		String s = null;
+		
+		
+		model.addAttribute("bo", bservice.board_detail(1));
 		
 		//숫자 랜덤으로 뽑기
 		while(s == null) {
@@ -38,6 +43,7 @@ public class HomeController {
 		}
 		
 		}
+		
 		
 		
 		System.out.println(s + "테이블 숫자값");

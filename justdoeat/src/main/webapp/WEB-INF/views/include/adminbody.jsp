@@ -53,7 +53,7 @@
 	<li><a href='member.ad' class='${ad_category eq "member" ? "active" : "" }'>회원정보 </a></li>
 	<li><a href='store.ad' class='${ad_category eq "store" ? "active" : "" }'>가게정보 </a></li>
 	<li><a href='allergy.ad' class='${ad_category eq "allergy" ? "active" : "" }'>알레르기 수정 </a></li>
-	<li><a href='notice.ad' class='${ad_notice eq "notice" ? "active" : ""}'>공지글</a></li>
+	<li><a href='notice.ad' class='${ad_category eq "notice" ? "active" : ""}'>공지글</a></li>
 </ul>
 
 </div>

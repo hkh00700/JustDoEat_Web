@@ -52,4 +52,9 @@ public class RestrantServiceImp implements RestrantService {
 		return dao.ad_rstrant_modify(vo);
 	}
 
+	@Override
+	public List<RestrantVO> ad_restrant_search(RestrantVO list) {
+		return dao.ad_restrant_search(list);
+	}
+
 }

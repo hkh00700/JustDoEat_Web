@@ -2,6 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin.mapper">
 
+	<select id="salist" resultType="admin.AllergyVO">
+		select * from allergy where ${search} like '%' || #{keyword} || '%'
+	</select>
+	<select id="malist" resultType="String">
+		select m_allergy from member where not m_allergy is null
+	</select>
+	
+	<delete id="adelete">
+		delete from allergy where a_material = #{a_material}
+	</delete>
+
+	<update id="aupdate">
+		update allergy set a_category = #{a_category} where a_material like #{a_material}
+	</update>
+	
+	<insert id="ainsert">
+		insert into allergy (a_material, a_category) values (#{a_material}, #{a_category})
+	</insert>
+	<select id="alist" resultType="admin.AllergyVO">
+		select * from allergy
+	</select>
+	
+	<sql id='rs_search'>
+	<if test="search == 'all'">
+		where restaurant like '%' || #{keyword} || '%'
+		or r_address like '%' || #{keyword} || '%'
+		or r_menu like '%' || #{keyword} || '%'
+	</if>
+	<if test= "search == 'restaurant' or search == 'r_address' or search == 'r_menu' ">
+		where ${search} like '%' || #{keyword} || '%'
+	</if> 
+	</sql>
+
+	<select id="slist" resultType="admin.RestrantVO">
+		select * from restaurantaddr <include refid="rs_search"/>
+	</select>
+	
+	
+
 	<delete id="r_delete">
 		delete from restaurantaddr where r_uq = #{r_uq}
 	</delete>
@@ -50,7 +89,7 @@
 		or m_nikname like '%' || #{keyword} || '%'
 	</if>
 	<if test= "search == 'm_name' or search == 'm_email' or search == 'm_nikname' ">
-		where #{search} like '%' || #{keyword} || '%'
+		where ${search} like '%' || #{keyword} || '%'
 	</if> 
 	</sql>
 	
