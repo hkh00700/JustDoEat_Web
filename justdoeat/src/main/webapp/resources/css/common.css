@@ -249,6 +249,11 @@ textarea[name=s_content] {
 	cursor: pointer;
 }
 
+#data-list .grid li div {
+	white-space:nowrap; overflow:hidden; text-overflow: ellipsis;
+	
+}
+
 ul.grid {
 	width: 1120px;
 	margin: 0 auto;
