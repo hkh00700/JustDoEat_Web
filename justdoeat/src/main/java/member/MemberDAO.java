@@ -66,5 +66,11 @@ public class MemberDAO implements MemberService {
 		return (Integer)sql.selectOne("member.mapper.nik_check", m_nickname)==0 
 				? true : false;
 	}
+
+	@Override
+	public boolean member_email_check(String m_email) {
+		return (Integer)sql.selectOne("member.mapper.email_check", m_email)==0 
+				? true : false;
+	}
 	
 }

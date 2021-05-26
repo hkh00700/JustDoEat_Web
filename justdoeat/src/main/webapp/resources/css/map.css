@@ -38,9 +38,13 @@
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 
 
-
+.map_wrap{margin: 0 auto;
+	width:1200px;
+	height: 600px;
+	position:relative;}
 
 #map{ margin-right:100px;
+	  position:absolute;
 	  left:50%;
 	  width: 1200px;
 	  transform:translateX(-50%);

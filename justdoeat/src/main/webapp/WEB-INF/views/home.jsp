@@ -6,8 +6,22 @@
 	<title>Home</title>
 
 <style type="text/css">
-.content {
-margin-bottom: 20px;
+
+#back{
+	margin-top:50px;
+	width:100%;
+	background-color:#d3b5b5;
+}
+
+#notice{
+	color: white;
+}
+
+.content{
+	margin: 0 auto;
+	position:relative;
+	width:1200px;
+	height: 1000px;
 }
 
 h1{
@@ -50,6 +64,9 @@ cursor: pointer;
 </style>
 </head>
 <body>
+	<div id="back">
+		<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a>공지글 제목 확인중</a></span> 
+	</div>
 	<div class="content">
 		<h1>오늘의 메뉴</h1>
 		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select' href="search.map?food=${food }">선택</a>

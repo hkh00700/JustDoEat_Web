@@ -72,7 +72,7 @@ style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항�
 		</td>
 	</tr>
 	<tr><th>* 이메일</th>
-		<td class='left'><input type='text' name='m_email' class='chk' /><br>
+		<td class='left'><input type='text' name='m_email' class='chk' /><a class='btn-fill-s' id='btn-email'>중복확인</a><br>
 			<div class='valid'>이메일을 입력하세요</div>
 		</td>
 	</tr>
@@ -148,11 +148,28 @@ function go_join(){
 			return;
 		}
 	}else{
-	//아이디는 중복확인을 하지 않은 경우
+	//닉네임 중복확인을 하지 않은 경우
 		if( ! item_check( $('[name=m_nickname]') ) ) return; 	
 		else{
 			alert('회원가입 불가\n'+ join.m_nickname.valid.desc );
 			$('[name=m_nickname]').focus();
+			return;
+		}
+	}
+	
+	//이메일 중복확인을 한 경우 이미 사용중이라면 회원가입불가
+	if( $('[name=m_email]').hasClass('chked') ){
+		if( $('[name=m_email]').siblings('div').hasClass('invalid') ){
+			alert('회원가입 불가!\n' + join.m_email.unUsable.desc );
+			$('[name=m_email]').focus();
+			return;
+		}
+	}else{
+	//이메일 중복확인을 하지 않은 경우
+		if( ! item_check( $('[name=m_email]') ) ) return; 	
+		else{
+			alert('회원가입 불가\n'+ join.m_email.valid.desc );
+			$('[name=m_email]').focus();
 			return;
 		}
 	}
@@ -238,13 +255,45 @@ function nik_check(){
 			alert(text+':'+req.status);
 		}
 	});
+}
+
+$('#btn-email').on('click', function(){
+	email_check();
+});
+
+function email_check(){
+	var $m_email = $('[name=m_email]');
+	if( $m_email.hasClass('chked') ) return;
+		
+	var data = join.tag_status( $m_email );
+	if( data.code=='invalid' ){
+		alert( '이메일 중복확인 불필요\n' +  data.desc );
+		$m_email.focus();
+		return;
+	}
+	
+	$.ajax({
+		type: 'post',
+		url: 'email_check',
+		data: { m_email:$m_email.val() },
+		success: function(response){
+			if( response ) response = join.m_email.usable;
+			else  response = join.m_email.unUsable;
+			display_status( response, $m_email.siblings('div') );
+			$m_email.addClass('chked');
+
+		},error: function(req, text){
+			alert(text+':'+req.status);
+		}
+	});
 	
 }
 
 $('.chk').on('keyup', function(){ 
-	if( $(this).attr('name')=='m_id' ||  $(this).attr('name')=='m_nickname'  ){
+	if( $(this).attr('name')=='m_id' ||  $(this).attr('name')=='m_nickname' ||  $(this).attr('name')=='m_email' ){
 		if( event.keyCode==13 ){
 			 if( $(this).attr('name')=='m_id'  ) id_check();
+			 else if( $(this).attr('name')=='m_email'  ) email_check();
 			 else nik_check();
 		}else{
 			$(this).removeClass('chked');

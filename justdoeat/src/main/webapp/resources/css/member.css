@@ -23,9 +23,7 @@ input[name=m_addr1] { width:calc(100% - 14px); }
 .centertable tr{
 	border-bottom: 1px solid #000000;
 	height: 70px;
-	
 	}
-
 	
 input{
 	outline: none;
