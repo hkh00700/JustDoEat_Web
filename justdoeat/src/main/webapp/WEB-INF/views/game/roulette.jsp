@@ -263,12 +263,12 @@ $('#trigger').click(function(){
 });
  
  var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 룰렛이 다시 돌아갑니다.<br/>';
-	result = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
+	result1 = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
 
  $('#trigger').click(function(){
 	//console.log(result);
 	//$('#trigger').text(result);
-	 $('.notice').text(result); 
+	 $('.notice').text(result1); 
 });
 /* 
  $('.restart>img').click(function(){
