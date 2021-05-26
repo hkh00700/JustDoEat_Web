@@ -40,7 +40,7 @@ request.setAttribute("fromAngle", fromAngle);
 margin: 0 auto;
 position:relative;
 width:1200px;
-height: 730px;
+height: 710px;
 text-align: center;
 font-size: 20px;
 }
@@ -255,7 +255,7 @@ $("#restart").click(function(){
     	$('#trigger').click(function(){
    	  		location.reload();
     		var openNewWindow = window.open("about:blank");
-   		  	 openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
+   		  	 openNewWindow.location.href="https://map.naver.com/v5/search/광주광역시 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
    		  	
    		  			 // if(!b("stop"))return;
    	 	  });

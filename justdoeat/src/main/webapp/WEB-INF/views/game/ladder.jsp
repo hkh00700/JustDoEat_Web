@@ -25,7 +25,7 @@ String resultE = "null";
 margin: 0 auto;
 position:relative;
 width:1200px;
-height: 730px;
+height: 710px;
 text-align: center;
 font-size: 20px;
 }
