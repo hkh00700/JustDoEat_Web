@@ -69,14 +69,14 @@ cursor: pointer;
 </style>
 </head>
 <body>
-	<c:if test="${bo.notice eq 'Y'}">
-	<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a href="detail.bo?no=1">${bo.s_title }</a></span>
-	</c:if>
 	
 	
 	<div id="back">
-		<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a>공지글 제목 확인중</a></span> 
+	<c:if test="${bo.notice eq 'Y'}">
+	<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a href="detail.bo?no=1">${bo.s_title }</a></span>
+	</c:if>
 	</div>
+
 	<div class="content">
 		<h1>오늘의 메뉴</h1>
 		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select' href="search.map?food=${food }">선택</a>
