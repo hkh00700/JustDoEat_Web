@@ -8,7 +8,6 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	font-family: 'Noto Sans KR', sans-serif;
-	height: 100%
 }
 
 img {
@@ -111,18 +110,19 @@ a.btn-not {
 
 a.btn-empty {
 	background-color: #fff;
-	color: #3367d6;
+	color: #ef5b5b;
 }
 
 a.btn-fill-s {
 	text-align: center;
 	padding: 1px 10px;
-	border: 1px solid #f38b8b;
+	border: 1px solid #ff8787;
 	border-radius: 3px;
-	box-shadow: 2px 2px 2px #c0c0c0;
+	box-shadow: 2px 2px 2px #ef5b5b;
 	font-size: 13px;
-	background-color: #f38b8b;
-	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #ff8787;
+	color: #ef5b5b;
 }
 
 input {
@@ -234,7 +234,7 @@ input[name=s_title] {
 }
 
 textarea[name=s_content] {
-	width: 1027px;
+	width: calc(100% - 6px);
 	height: 150px;
 	resize: none;
 }
@@ -269,7 +269,6 @@ ul.grid li:not(:nth-child(5n)) {
 
 ul.grid li div {
 	text-align: left;
-	color: white;
 }
 
 ul.grid li div:nth-child(1) {

@@ -14,6 +14,7 @@ public interface MemberService {
 	boolean member_update(MemberVO vo); 					//내정보수정에서 회원정보수정저장
 	boolean member_id_check(String id);					//아이디중복확인
 	boolean member_nik_check(String m_nickname);		//닉네임중복확인
+	boolean member_email_check(String m_email);		//이메일중복확인
 
 	
 	

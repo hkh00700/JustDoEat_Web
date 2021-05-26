@@ -26,6 +26,8 @@ var join = {
 	m_email: {
 		valid: { code:'valid', desc:'유효한 이메일입니다.' },
 		invalid: { code:'invalid', desc:'이메일형식이 유효하지 않습니다.' },
+		usable: { code:'valid', desc:'사용가능한 이메일입니다.' },
+		unUsable: { code:'invalid', desc:'이미 사용중인 이메일입니다.' }
 	},
 	
 	pw_check_status: function(pw_check){

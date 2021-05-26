@@ -7,6 +7,23 @@ public class BoardVO {
 	private String s_photo;
 	private String s_title, s_content, m_nickname, writer, s_photo_path;
 	private Date updatetime;
+	
+	private String notice;
+	
+	
+	
+	public String getNotice() {
+		return notice;
+	}
+	public void setNotice(String notice) {
+		this.notice = notice;
+	}
+	
+	public void setM_nickname(String m_nickname) {
+		this.m_nickname = m_nickname;
+	}
+
+	
 	public int getNo() {
 		return no;
 	}

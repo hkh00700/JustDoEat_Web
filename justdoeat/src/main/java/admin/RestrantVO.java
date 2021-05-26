@@ -16,9 +16,23 @@ public class RestrantVO {
 		
 	public int r_uq;
 	
+	public String search;
+	public String keyword;
 	
 	
 	
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int getR_uq() {
 		return r_uq;
 	}

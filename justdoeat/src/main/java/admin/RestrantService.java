@@ -13,7 +13,9 @@ public interface RestrantService {
 	RestrantVO ad_restrant_detail(int r_uq);//관리자 가게 내용 자세히보기
 	int ad_restrant_delete(int r_uq);//관리자 가게 삭제
 	int ad_rstrant_modify(RestrantVO vo);	//관리자가 가게 정보 수정
+	List<RestrantVO> ad_restrant_search(RestrantVO list);	//관리자가 가게 정보 검색
 
+	
 	
 
 }

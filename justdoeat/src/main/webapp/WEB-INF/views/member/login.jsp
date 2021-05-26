@@ -51,6 +51,7 @@ border-radius: 50px;
 		<input type='text' id='userid' placeholder="아이디" />
 		<input type='password' id='userpw' placeholder="비밀번호"
 		    onkeypress="if( event.keyCode==13 ){ go_login() }" />
+		<a href='memberjoin'>가입하기</a>
 		<a class='btn-fill' onclick="go_login()" id="btnlogin">로그인</a>
 		<h4 style='width:69%; margin:25px auto;'>간편로그인</h4>
 		
