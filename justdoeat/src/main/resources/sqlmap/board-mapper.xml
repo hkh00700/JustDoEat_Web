@@ -3,6 +3,10 @@
 <mapper namespace="board.mapper">
 
 
+<select id="nodetail" resultType="board.BoardVO">
+	select s_title, no, s_content, notice from s_board where no=#{no}
+</select>
+
 <select id="detail" resultType="board.BoardVO">
 	select s_board.*, (select m_nikname from member
 	                 where member.m_id=writer) m_nikname 

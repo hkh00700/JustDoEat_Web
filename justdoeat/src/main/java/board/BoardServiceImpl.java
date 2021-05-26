@@ -39,6 +39,11 @@ public class BoardServiceImpl implements BoardService {
 		return dao.board_delete(no);
 	}
 
+	@Override
+	public BoardVO board_detail_no(int no) {
+		return dao.board_detail_no(no);
+	}
+
 
 
 }

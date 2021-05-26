@@ -8,7 +8,7 @@ public class BoardVO {
 	private String s_title, s_content, m_nickname, writer, s_photo_path;
 	private Date updatetime;
 	
-	private String notice;
+	public String notice;
 	
 	
 	

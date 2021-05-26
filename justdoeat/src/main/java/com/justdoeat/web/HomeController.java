@@ -30,8 +30,7 @@ public class HomeController {
 		String s = null;
 		
 		
-		model.addAttribute("bo", bservice.board_detail(1));
-		
+	
 		//숫자 랜덤으로 뽑기
 		while(s == null) {
 		int ran = (int)(Math.random()*17) + 1;
@@ -44,6 +43,8 @@ public class HomeController {
 		
 		}
 		
+		
+		model.addAttribute("bo", bservice.board_detail_no(1));
 		
 		
 		System.out.println(s + "테이블 숫자값");

@@ -8,6 +8,7 @@
 <style type="text/css">
 .content {
 margin-bottom: 20px;
+}
 
 #back{
 	margin-top:50px;
@@ -23,7 +24,7 @@ margin-bottom: 20px;
 	margin: 0 auto;
 	position:relative;
 	width:1200px;
-	height: 700px;
+	margin-bottom: 30px;
 }
 
 h1{
@@ -67,13 +68,22 @@ cursor: pointer;
 	font-weight: bold;
 	}
 
+#restrant_box a {
+	font-size: 25px;
+	line-height: 25px;
+}
+
+#restrant_box{
+	margin-bottom: 30px;
+}
 </style>
 </head>
 <body>
+
 	
 	
 	<div id="back">
-	<c:if test="${bo.notice eq 'Y'}">
+	<c:if test="${!empty bo.s_title}">
 	<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a href="detail.bo?no=1">${bo.s_title }</a></span>
 	</c:if>
 	</div>
@@ -93,9 +103,9 @@ cursor: pointer;
 		<a href="login">
 		</c:if>
 		<c:if test="${!empty loginInfo }">
-		<a href="restrantJoin.ad?m_uq=${loginInfo.m_uq }">
+		<a href="restrantJoin.ad?m_uq=${loginInfo.m_uq }" >
 		</c:if>
-		<img src="imgs/arrow.png" height="100px" width="100px">내가게 등록하기
+		내가게 등록하기<i style=" margin-left:5px; width: 30px; height: 30px;" class="fas fa-store"></i>
 		</a>
 	
 	</div>

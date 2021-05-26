@@ -9,6 +9,10 @@
 		left: 50%;
 		transform:translateX(-50%);
 	}
+	
+	.active {
+		font-weight: bold;
+	}
 </style>
 <header style='text-align:left; align-self: center; position: relative;'>
    <div class='category'>

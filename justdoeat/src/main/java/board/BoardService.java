@@ -9,4 +9,5 @@ public interface BoardService {
 	int board_update(BoardVO vo); 
 	int board_delete(int no); 
 	
+	BoardVO board_detail_no(int no);
 }

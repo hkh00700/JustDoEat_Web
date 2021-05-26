@@ -48,6 +48,11 @@ public class BoardDAO implements BoardService {
 		return sql.delete("board.mapper.delete", no);
 	}
 
+	@Override
+	public BoardVO board_detail_no(int no) {
+		return sql.selectOne("board.mapper.nodetail", no);
+	}
+
 	
 
 }
