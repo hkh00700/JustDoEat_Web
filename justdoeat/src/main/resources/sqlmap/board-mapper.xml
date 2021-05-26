@@ -14,11 +14,17 @@
 </delete>
 
 <update id="update">
+{
+	call declare begin
+	update s_board set notice=null;
+	
 	update s_board set s_title=#{s_title}, s_content=#{s_content}
 			, s_photo=#{s_photo, jdbcType=VARCHAR}
 			, s_photo_path=#{s_photo_path, jdbcType=VARCHAR}
 			, notice=#{notice, jdbcType=VARCHAR}
-	where no=#{no}
+	where no=#{no};
+	end
+}
 </update>
 
 <update id="read">

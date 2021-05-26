@@ -44,7 +44,7 @@ public class AdminController {
 	@RequestMapping("/list.ad")
 	public String admin(HttpSession session ) {
 		session.setAttribute("category", "ad");
-		return "admin/list";
+		return "redirect:member.ad";
 	}
 	
 	
@@ -282,6 +282,7 @@ public class AdminController {
 	@RequestMapping("/member.ad")
 	public String member_ad(HttpSession session, Model model) {
 		session.setAttribute("ad_category", "member");
+		session.setAttribute("category", "ad");
 		model.addAttribute("list", service.customer_list());
 		
 		return"admin/member";

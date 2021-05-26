@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
    
     
-<footer
-style='font-size:14px; padding:23px 15px 23px 15px; border-top:1px solid #ccc;background-color: #28344a; margin-left:50px;margin-right:50px; height:170px; width:1200px; margin:0 auto; box-sizing: border-box; 
+<footer style="width: 100%; background-color: #28344a; height:150px;">
+<div style='font-size:14px; padding:23px 15px 23px 15px; margin-left:50px;margin-right:50px; width:1200px; margin:0 auto; box-sizing: border-box; 
 color: white; text-align: center; '>
 	<img src='imgs/logo.png' alt='logo' align="left"/>
 	<div style="float: left; text-align: left; padding: 5px;" >
@@ -18,6 +18,7 @@ color: white; text-align: center; '>
 	      <li><a href="#">개인정보처리방침</a></li>
 	      <li><a href="#"><img src="imgs/sns.png" alt=""></a></li>
 	    </ul>
+    </div>
     </div>
 </footer>
 <style>

@@ -44,6 +44,7 @@
 <input type="hidden" value="${vo.no }" name='no'/>
 <input type="hidden" value="${vo.s_title }" name='s_title'/>
 <input type="hidden" value="${vo.s_content }" name='s_content'/>
+<input type="hidden" value="관리자" name="writer">
 </form>
 
 <div class='btnSet'>

@@ -6,15 +6,12 @@
 
 <!DOCTYPE html>
 <html>
-<style>
-
-</style>
-
 <head>
 	<meta charset="utf-8">
 	<title>다음 지도 API</title>
 </head>
 <body>
+<div id="all">
 <div class="map_wrap">
     <div id="map"></div>
 	
@@ -32,6 +29,7 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
+</div>
 </div>
 
 

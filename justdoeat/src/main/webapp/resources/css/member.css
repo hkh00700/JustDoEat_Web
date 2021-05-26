@@ -7,11 +7,14 @@ input[name=m_addr1] { width:calc(100% - 14px); }
 
 *{margin: 0 auto;}
 
+h3{
+	padding-top: 50px;
+}
 .content{
 	margin: 0 auto;
 	position:relative;
 	width:1200px;
-	height: 1000px;
+	height:1000px;
 }
 
 .centertable{

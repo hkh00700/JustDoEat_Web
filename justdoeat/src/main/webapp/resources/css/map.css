@@ -38,6 +38,11 @@
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 
 
+#all{
+	height: 720px;
+	
+	
+}
 .map_wrap{margin: 0 auto;
 	width:1200px;
 	height: 600px;

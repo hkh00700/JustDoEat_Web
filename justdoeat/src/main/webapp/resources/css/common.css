@@ -67,11 +67,11 @@ a.btn-fill, a.btn-empty {
 	padding: 3px 10px;
 	border: none;
 	border-radius: 3px;
-	box-shadow: 2px 2px 3px #ff8787;
+	box-shadow: 2px 2px 3px #A3A2A2;
 }
 
 a.btn-fill {
-	background-color: #ef5b5b;
+	background-color: #ff8787;
 	color: white;
 	margin-left: 2px;
 }
@@ -118,11 +118,10 @@ a.btn-fill-s {
 	padding: 1px 10px;
 	border: 1px solid #ff8787;
 	border-radius: 3px;
-	box-shadow: 2px 2px 2px #ef5b5b;
+	box-shadow: 2px 2px 2px #A3A2A2;
 	font-size: 13px;
-	font-weight: bold;
 	background-color: #ff8787;
-	color: #ef5b5b;
+	color:#ffffff;
 }
 
 input {
@@ -160,7 +159,7 @@ ul {
 }
 
 #list-top {
-	padding: 20px 10%;
+	padding-bottom: 10px;
 	height: 115px;
 }
 
@@ -169,10 +168,14 @@ ul {
 	position: relative;
 }
 
-#ser {
+#ser, #page {
 	position: absolute;
-	left: 700px;
-	margin-bottom: 50px;
+	float:right;
+	margin-top: 70px;
+}
+
+#page{
+	margin-right: 550px;
 }
 
 #list-top ul {
@@ -198,12 +201,12 @@ ul {
 }
 
 #select {
-	border-radius: 15px 0 0 15px;
 	display: inline-block;
 	height: 48px;
 	font-size: 16px;
-	padding: 0 0 0 20px;
-	background-color: #040c50;
+	padding: 2px 1px 0 20px;
+	background-color: #57596d;
+	border: 1px solid #000000;
 	color: white;
 }
 
@@ -213,11 +216,10 @@ option {
 
 #ser ul li:last-child {
 	border: 1px solid black;
-	border-radius: 0 15px 15px 0;
-	width: 70px;
 	height: 30px;
-	padding: 8px 47px 8px 48px;
-	background-color: #040c50;
+	width: 30px;
+	padding: 8px 20px 8px 20px;
+	background-color: #57596d;
 	display: inline-block;
 }
 

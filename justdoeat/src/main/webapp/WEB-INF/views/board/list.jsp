@@ -22,7 +22,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 
 </head>
 <body>
-
+<h3>게시판</h3>
 <div id='list-top'>
 <form method="post" action="list.bo">
 	<input type='hidden' name='curPage' value='1'/>
@@ -30,7 +30,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 	<div style="width: 1200px; margin: 0 auto;">
 		<div id=ser>
 		<ul >
-			<li><select id = 'select'  name='search' class='wpx140'>
+			<li><select id = 'select'  name='search'>
 				<option value='all' ${page.search eq 'all' ? 'selected' : ''}>전체</option>
 				<option value='s_title' ${page.search eq 's_title' ? 'selected' : ''}>제목</option>
 				<option value='s_content' ${page.search eq 's_content' ? 'selected' : ''}>내용</option>
@@ -43,7 +43,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 		</ul>
 		</div>
 		<div id=page>
-		<ul >
+		<ul>
 			<li><select name='pageList' class='wpx80'
 					onchange="$('form').submit()" >
 				<option value='5' ${page.pageList eq 5 ? 'selected': ''}>5개씩</option>
@@ -58,7 +58,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 				<option value='list' ${page.viewType eq 'list' ? 'selected' : ''}>리스트형태</option>
 				<option value='grid' ${page.viewType eq 'grid' ? 'selected' : ''}>바둑판형태</option>
 				</select>
-			</li>
+			</li>	
 			<!-- 로그인된 경우 글쓰기 가능 -->
 			<c:if test="${!empty loginInfo}">
 			<li><a class='btn-fill' href='new.bo'>글쓰기</a></li>
@@ -85,7 +85,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 </c:if>
 <c:if test="${page.viewType eq 'list'}"> <!-- 목록형태 -->
 <table style='margin:0 auto; width: 1200px;'>
-<tr style="border-top:2px solid #040c50;background-color: #ef5b5b; padding: 0 0 10px; height: 45px;"><th class='wpx100'>No.</th>
+<tr style="border-top:2px solid #040c50;background-color: #e8e8e8; padding: 0 0 10px; height: 45px;"><th class='wpx100'>No.</th>
 	<th class='wpx100'>사진</th>
 	<th class='wpx600'>제목</th>
 	<th class='wpx100'>작성자</th>

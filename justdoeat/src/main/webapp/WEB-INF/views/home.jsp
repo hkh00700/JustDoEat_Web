@@ -24,6 +24,7 @@ margin-bottom: 20px;
 	margin: 0 auto;
 	position:relative;
 	width:1200px;
+	height: 700px;
 }
 
 h1{
