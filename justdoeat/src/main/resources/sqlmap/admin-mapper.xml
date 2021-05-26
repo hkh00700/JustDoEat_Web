@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin.mapper">
+	<select id="rsall" resultType="integer">
+		select count(*) from restaurantaddr
+	</select>
 
+	<select id="rstoday" resultType="integer">
+		select count(*) from restaurantaddr where hire_data = sysdate
+	</select>
+	
 	<select id="salist" resultType="admin.AllergyVO">
 		select * from allergy where ${search} like '%' || #{keyword} || '%'
 	</select>
