@@ -8,7 +8,6 @@
 <style type="text/css">
 .content {
 margin-bottom: 20px;
-}
 
 #back{
 	margin-top:50px;
@@ -71,18 +70,21 @@ cursor: pointer;
 </style>
 </head>
 <body>
+	
+	
 	<div id="back">
 	<c:if test="${bo.notice eq 'Y'}">
-		<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a href="detail.bo?no=1">${bo.s_title }</a></span>
+	<span id="notice"><i style="margin-right: 5px;" class="fas fa-bullhorn"></i><a href="detail.bo?no=1">${bo.s_title }</a></span>
 	</c:if>
 	</div>
-	
+
 	<div class="content">
 		<h1>오늘의 메뉴</h1>
 		<a id="r_food">${food }</a><img src='imgs/reset.png' alt="다시추천" onclick="location.reload()"/><a class='select' href="search.map?food=${food }">선택</a>
 		
 		<br/><br/><br/><br/>
-		선택버튼을 클릭하시면 지도로 이동합니다
+		선택 버튼을 누르시면 자세한 오늘의 메뉴 정보를 확인하실 수 있습니다.<br/>
+		<다시추천> 을 누르시면 자세한 오늘의 메뉴를 다시 추천 받으실 수 있습니다.
 		
 	</div>
 	
@@ -93,7 +95,7 @@ cursor: pointer;
 		<c:if test="${!empty loginInfo }">
 		<a href="restrantJoin.ad?m_uq=${loginInfo.m_uq }">
 		</c:if>
-		내가게 등록하기<img src="imgs/arrow.png" height="70px" width="70px">
+		<img src="imgs/arrow.png" height="100px" width="100px">내가게 등록하기
 		</a>
 	
 	</div>

@@ -40,7 +40,7 @@ request.setAttribute("fromAngle", fromAngle);
 margin: 0 auto;
 position:relative;
 width:1200px;
-height: 730px;
+height: 710px;
 text-align: center;
 font-size: 20px;
 }
@@ -164,7 +164,7 @@ position:absolute;
    <div class="content2">
 	 <h2>오늘의 메뉴</h2>
 	  <div class="content2with">
-	    <a id="trigger">▶ START<a id="restart" class="restart" onclick="random()"><img alt="재시작" src="imgs/reset.png"></a></a>
+	    <a id="trigger" data-action=0>▶ START<a id="restart" class="restart" onclick="random()"><img alt="재시작" src="imgs/reset.png"></a></a>
 	    
 	  </div>  
 	    <br/><br/><h4 class='notice'>ⓘ START버튼을 누르시면 게임이 시작됩니다.</h4>
@@ -248,33 +248,27 @@ $("#restart").click(function(){
 //b("stop");		 
 }
 	
-	
-     $('#trigger').click(function(){
-    	/*  $('.restart').css("display", "block"); */
-   	  	random();  
-    	$('#trigger').click(function(){
-   	  		location.reload();
-    		var openNewWindow = window.open("about:blank");
-   		  	 openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
-   		  	
-   		  			 // if(!b("stop"))return;
-   	 	  });
-			$('.restart>img').css("display","inline-block");
-			$('#trigger').text("추천음식");
-   	  	//  int random =(int)(Math.random()*max);
-   	});
-/* $('.restart>img').click(function(){
-	random();
-});  
- */
+$('#trigger').click(function(){
+	if( $(this).data('action')==0 ){
+		console.log( 'action>',$('#trigger').data('action') )
+		random();
+		$('.restart>img').css("display","inline-block");
+		$('#trigger').text("추천음식");
+		$(this).data('action', 1);
+	}else{		
+		var openNewWindow = window.open("about:blank");
+	  	openNewWindow.location.href="https://map.naver.com/v5/search/광주광역시 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
+		$(this).data('action', 0);
+	}
+});
  
  var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 룰렛이 다시 돌아갑니다.<br/>';
-	result = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
+	result1 = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
 
  $('#trigger').click(function(){
 	//console.log(result);
 	//$('#trigger').text(result);
-	 $('.notice').text(result); 
+	 $('.notice').text(result1); 
 });
 /* 
  $('.restart>img').click(function(){
