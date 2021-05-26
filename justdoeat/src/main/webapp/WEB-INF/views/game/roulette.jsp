@@ -102,7 +102,8 @@ cursor: pointer;
 }
 
 .content2 img{
- position: absolute; 
+ position: absolute;
+ margin-left: 120px;  
 
 
 }
@@ -117,7 +118,8 @@ cursor:pointer;
 width: 65px;
 height: 65px;
 display:none;
- margin-left: 120px;
+position:absolute;
+/*  margin-left: 120px; */
  margin-top: -10px;
 
 
@@ -162,7 +164,7 @@ display:none;
    <div class="content2">
 	 <h2>오늘의 메뉴</h2>
 	  <div class="content2with">
-	    <a id="trigger" onclick="random()" >▶ START<a id="restart" class="restart" onclick="random()"><img alt="재시작" src="imgs/reset.png"></a></a>
+	    <a id="trigger">▶ START<a id="restart" class="restart" onclick="random()"><img alt="재시작" src="imgs/reset.png"></a></a>
 	    
 	  </div>  
 	    <br/><br/><h4 class='notice'>ⓘ START버튼을 누르시면 게임이 시작됩니다.</h4>
@@ -242,20 +244,23 @@ $("#restart").click(function(){
 	          }   
 	       // return "#trigger";
 	   }, 4000);
+
+//b("stop");		 
 }
 	
 	
      $('#trigger').click(function(){
     	/*  $('.restart').css("display", "block"); */
-   	  	  $('#trigger').click(function(){
-   	  		 var openNewWindow = window.open("about:blank");
+   	  	random();  
+    	$('#trigger').click(function(){
+   	  		location.reload();
+    		var openNewWindow = window.open("about:blank");
    		  	 openNewWindow.location.href="https://map.naver.com/v5/search/광주서구 "+ result;  +"?c=14125237.9868284,4181827.5195079,15,0,0,0,dh" 
-   		  			 
-   		  			
+   		  	
+   		  			 // if(!b("stop"))return;
    	 	  });
 			$('.restart>img').css("display","inline-block");
 			$('#trigger').text("추천음식");
-   			
    	  	//  int random =(int)(Math.random()*max);
    	});
 /* $('.restart>img').click(function(){
@@ -266,12 +271,11 @@ $("#restart").click(function(){
  var text = 'ⓘ 추천된 오늘의 메뉴를 누르시면 주변 음식점을 안내해 드립니다.<br/> ⓘ 재실행 버튼을 누르시면 룰렛이 다시 돌아갑니다.<br/>';
 	result = text.replace(/(<br>|\<br\/>|<br \/>)/g, '\r\n');
 
-$('#trigger').click(function(){
-	console.log(result);
-	$('.notice').text(result);
+ $('#trigger').click(function(){
+	//console.log(result);
+	//$('#trigger').text(result);
+	 $('.notice').text(result); 
 });
-
-
 /* 
  $('.restart>img').click(function(){
 	 random();

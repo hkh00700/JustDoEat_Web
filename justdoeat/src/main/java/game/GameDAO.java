@@ -20,6 +20,4 @@ public class GameDAO implements GameService {
 		return list;
 	}
 
-
-
 }
