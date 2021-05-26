@@ -47,6 +47,10 @@ public class MemberServiceImpl implements MemberService {
 	public boolean member_nik_check(String m_nickname) {
 		return dao.member_nik_check(m_nickname);
 	}
+	@Override
+	public boolean member_email_check(String m_email) {
+		return dao.member_email_check(m_email);
+	}
 	
 	
 	

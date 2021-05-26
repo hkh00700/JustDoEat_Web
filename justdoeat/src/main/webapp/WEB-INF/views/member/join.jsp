@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel='stylesheet' type='text/css' 
+	href='css/member.css?v=<%=new java.util.Date().getTime()%>'>
 <title>Insert title here</title>
-<style type="text/css">
-	input[name=m_addr1] { width:calc(100% - 14px); }
-	.valid, .invalid { font-size:13px; font-weight:bold; }
-	.valid { color:green }
-	.invalid { color:red }
-</style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
@@ -39,12 +35,14 @@ function after(date){
 </script>
 </head>
 <body>
+<div class="content">
 <h3>회원가입</h3>
 
 <p class='wpct40 right' 
 style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항목입니다</p>
+
 <form method="post" action="join">
-<table class='wpct40'>
+<table class='wpct40 centertable' border="0">
 	<tr><th class='wpx120'>* 성명</th>
 		<td class='left'><input type='text' name='m_name' /></td>
 	</tr>
@@ -74,7 +72,7 @@ style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항�
 		</td>
 	</tr>
 	<tr><th>* 이메일</th>
-		<td class='left'><input type='text' name='m_email' class='chk' /><br>
+		<td class='left'><input type='text' name='m_email' class='chk' /><a class='btn-fill-s' id='btn-email'>중복확인</a><br>
 			<div class='valid'>이메일을 입력하세요</div>
 		</td>
 	</tr>
@@ -95,19 +93,29 @@ style='margin:0 auto; padding-bottom:5px; font-size:13px' >*는 필수입력항�
 			<input type='text' name='m_addr2' />
 		</td>
 	</tr>
-	
 </table>
 </form>
+
 <div class='btnSet'>
 <a class='btn-fill' onclick='go_join()'>회원가입</a>
-<a class='btn-empty' href='javascript:history.go(-1)'>취소</a>
+<a class='btn-empty' onclick='cancel()'>취소</a>
 <!-- <a class='btn-empty' onclick='history.go(-1)'>취소</a> -->
+</div>
 </div>
 
 <script type="text/javascript" 
 	src="js/join_check.js?v=<%=new java.util.Date().getTime()%>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
+
+function cancel() {
+	if(confirm("정말 취소하겠습니까?")){
+		location.href='/web'; 
+		alert("취소되었습니다!");
+    }else {
+        return false;
+    }
+}
 function go_join(){
 	if( $('[name=m_name]').val()=='' ){
 		alert('성명을 입력하세요!');
@@ -140,11 +148,28 @@ function go_join(){
 			return;
 		}
 	}else{
-	//아이디는 중복확인을 하지 않은 경우
+	//닉네임 중복확인을 하지 않은 경우
 		if( ! item_check( $('[name=m_nickname]') ) ) return; 	
 		else{
 			alert('회원가입 불가\n'+ join.m_nickname.valid.desc );
 			$('[name=m_nickname]').focus();
+			return;
+		}
+	}
+	
+	//이메일 중복확인을 한 경우 이미 사용중이라면 회원가입불가
+	if( $('[name=m_email]').hasClass('chked') ){
+		if( $('[name=m_email]').siblings('div').hasClass('invalid') ){
+			alert('회원가입 불가!\n' + join.m_email.unUsable.desc );
+			$('[name=m_email]').focus();
+			return;
+		}
+	}else{
+	//이메일 중복확인을 하지 않은 경우
+		if( ! item_check( $('[name=m_email]') ) ) return; 	
+		else{
+			alert('회원가입 불가\n'+ join.m_email.valid.desc );
+			$('[name=m_email]').focus();
 			return;
 		}
 	}
@@ -230,13 +255,45 @@ function nik_check(){
 			alert(text+':'+req.status);
 		}
 	});
+}
+
+$('#btn-email').on('click', function(){
+	email_check();
+});
+
+function email_check(){
+	var $m_email = $('[name=m_email]');
+	if( $m_email.hasClass('chked') ) return;
+		
+	var data = join.tag_status( $m_email );
+	if( data.code=='invalid' ){
+		alert( '이메일 중복확인 불필요\n' +  data.desc );
+		$m_email.focus();
+		return;
+	}
+	
+	$.ajax({
+		type: 'post',
+		url: 'email_check',
+		data: { m_email:$m_email.val() },
+		success: function(response){
+			if( response ) response = join.m_email.usable;
+			else  response = join.m_email.unUsable;
+			display_status( response, $m_email.siblings('div') );
+			$m_email.addClass('chked');
+
+		},error: function(req, text){
+			alert(text+':'+req.status);
+		}
+	});
 	
 }
 
 $('.chk').on('keyup', function(){ 
-	if( $(this).attr('name')=='m_id' ||  $(this).attr('name')=='m_nickname'  ){
+	if( $(this).attr('name')=='m_id' ||  $(this).attr('name')=='m_nickname' ||  $(this).attr('name')=='m_email' ){
 		if( event.keyCode==13 ){
 			 if( $(this).attr('name')=='m_id'  ) id_check();
+			 else if( $(this).attr('name')=='m_email'  ) email_check();
 			 else nik_check();
 		}else{
 			$(this).removeClass('chked');

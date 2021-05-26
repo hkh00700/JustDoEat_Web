@@ -44,7 +44,7 @@ div#comment_regist span { width:50%; float:left; }
 	<td class='left'><input type="text" value="${vo.s_title}" name="s_title"></td>
 </tr>
 <tr><th class='wpx160'>내용</th>
-	<td class='left'><textarea name="s_content" cols='80' rows='10' style="padding:10px; font-size: 16px; ">${fn: replace(vo.s_content, crlf, '<br>') }</textarea></td>
+	<td class='left'><textarea name="s_content" cols='80' rows='10' style="padding:10px 0 10px 10px; font-size: 16px; ">${fn: replace(vo.s_content, crlf, '<br>') }</textarea></td>
 </tr>
 <tr><th>파일첨부</th>
 	<td class='left'>

@@ -195,8 +195,6 @@ public class MemberController {
 		map.put("m_pw", m_pw);
 		System.out.println("아이디 비번: "+ m_id + m_pw);
 		MemberVO vo = service.member_login(map);
-		System.out.println("vo : " + vo);
-		System.out.println(vo.getM_nickname());
 		session.setAttribute("loginInfo", vo);
 
 		return vo==null ? false : true;
@@ -218,11 +216,18 @@ public class MemberController {
 	}
 	
 	//닉네임 중복확인 요청
-		@ResponseBody @RequestMapping("/nik_check")
-		public boolean nik_check(String m_nickname) {
-			//화면에서 입력한 닉네임이 DB에 존재하는지 여부를 확인해 반환
-			return service.member_nik_check(m_nickname);
-		}
+	@ResponseBody @RequestMapping("/nik_check")
+	public boolean nik_check(String m_nickname) {
+		//화면에서 입력한 닉네임이 DB에 존재하는지 여부를 확인해 반환
+		return service.member_nik_check(m_nickname);
+	}
+		
+	//이메일 중복확인 요청
+	@ResponseBody @RequestMapping("/email_check")
+	public boolean email_check(String m_email) {
+		//화면에서 입력한 이메일이 DB에 존재하는지 여부를 확인해 반환
+		return service.member_email_check(m_email);
+	}
 	
 	//회원가입처리 요청
 
@@ -234,10 +239,10 @@ public class MemberController {
 				"<script type='text/javascript'>");
 		
 		if( service.member_join(vo)==1 ) {
-			msg.append("alert('�쉶�썝媛��엯�쓣 異뺥븯�빀�땲�떎^^'); location='"
+			msg.append("alert('회원가입 성공^^'); location='"
 							+ request.getContextPath() + "'; ");
 		}else {
-			msg.append("alert('�쉶�썝媛��엯 �떎�뙣�뀪�뀪'); location='member'; ");	
+			msg.append("alert('회원가입 실패'); location='member'; ");	
 		}
 		msg.append("</script>");
 		return msg.toString();

@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='stylesheet' type='text/css' 
+	href='css/member.css?v=<%=new java.util.Date().getTime()%>'>
 <style type="text/css">
 	table {
 		border-collapse: collapse;
@@ -12,16 +14,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="content">
 	<h3>${vo. m_nikname }님의 가게 등록하기</h3>
 <form  method="post"  enctype="multipart/form-data" action="rinsert.ad" >
 <input type="hidden" name= "m_uq" value="${vo.m_uq }">
-
-	<table border="1" style="margin: 0 auto; text-align: center;">
+	<table class="centertable" border="1" style="margin: 0 auto; text-align: center;">
 		<tr ><th>*가게명</th>
 			<td class="wpx300 left"><input type="text" name="restaurant" required="required"/></td>
 		</tr>
-	
-		
 		<tr><th>주소</th>
 		<td class='wpx300 left'><a class='btn-fill' onclick='daum_post()'>우편번호찾기</a>
 			<input type='text' name='post' class='wpx60' readonly /><br/>
@@ -53,6 +53,7 @@
 		<a class='btn-fill' onclick="if(confirm('등록하시겠습니까?')){$('form').submit()}">신청</a>
 		<a class='btn-fill' href='/web'>취소</a>
 	</div>
+</div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 

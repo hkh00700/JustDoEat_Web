@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+input[name=m_addr1] { width:calc(100% - 14px); }
+.valid, .invalid { font-size:13px; font-weight:bold; }
+.valid { color:#040c50 }
+.invalid { color:#f38b8b }
+
+*{margin: 0 auto;}
+
+.content{
+	margin: 0 auto;
+	position:relative;
+	width:1200px;
+	height: 1000px;
+}
+
+.centertable{
+	margin: 0 auto;
+	position: relative;
+	border-collapse: collapse
+}
+
+.centertable tr{
+	border-bottom: 1px solid #000000;
+	height: 70px;
+	}
+	
+input{
+	outline: none;
+	border: none;
+	margin-bottom: 10px;
+}

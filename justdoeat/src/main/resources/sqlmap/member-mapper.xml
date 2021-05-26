@@ -16,6 +16,10 @@
 	select count(*) from member where m_nikname=#{m_nickname}
 </select>
 
+<select id="email_check" resultType="integer">
+	select count(*) from member where m_email=#{m_email}
+</select>
+
 <insert id="join">
 	insert into member(m_uq, m_email, m_id, m_pw, m_name, m_phone, m_gender, m_nikname, m_birth, m_addr1, m_addr2, m_post)
 	values (seq_member.NEXTVAL, #{m_email}, #{m_id}, #{m_pw}, #{m_name}, #{m_phone}, #{m_gender}, #{m_nickname}, #{m_birth, jdbcType=VARCHAR}, #{m_addr1, jdbcType=VARCHAR}, #{m_addr2, jdbcType=VARCHAR}, #{m_post, jdbcType=VARCHAR})
@@ -45,7 +49,7 @@
 </select>
 
 <update id="member_update">
-	update member set m_name=#{m_name}, m_pw=#{m_pw}, m_phone=#{m_phone}, m_gender=#{m_gender}, m_nikname=#{m_nickname}, m_addr1=#{m_addr1, jdbcType=VARCHAR}, m_addr2=#{m_addr2, jdbcType=VARCHAR}, m_post=#{m_post, jdbcType=VARCHAR}
+	update member set m_name=#{m_name}, m_id=#{m_id}, m_pw=#{m_pw}, m_phone=#{m_phone, jdbcType=VARCHAR}, m_gender=#{m_gender}, m_nikname=#{m_nickname}, m_addr1=#{m_addr1, jdbcType=VARCHAR}, m_addr2=#{m_addr2, jdbcType=VARCHAR}, m_post=#{m_post, jdbcType=VARCHAR}
 	where m_email = #{m_email}
 </update>
 
