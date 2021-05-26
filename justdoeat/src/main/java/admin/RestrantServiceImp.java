@@ -57,4 +57,14 @@ public class RestrantServiceImp implements RestrantService {
 		return dao.ad_restrant_search(list);
 	}
 
+	@Override
+	public int ad_restrant() {
+		return dao.ad_restrant();
+	}
+
+	@Override
+	public int today_rstrant() {
+		return dao.today_rstrant();
+	}
+
 }

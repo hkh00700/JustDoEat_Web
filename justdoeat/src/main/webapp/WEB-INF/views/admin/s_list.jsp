@@ -47,8 +47,8 @@
 <table>
 	<tr>
 		<th><%=tm %></th>
-		<th><h4 >전체 가게 수 : ${fn:length(vo) }</h4></th>
-		<th><h4 style=" margin-left:20px; background: yellow;">오늘 등록한 가게 수 : </h4></th>
+		<th><h4 >전체 가게 수 : ${all }</h4></th>
+		<th><h4 style=" margin-left:20px; background: yellow;">오늘 등록한 가게 수 : ${toady_r } </h4></th>
 	</tr>
 </table>
 <table border="1" class="center">

@@ -37,7 +37,6 @@
 		<th width="400px">음식</th>
 		<th width="200px">분류</th>
 		<th width="100px"></th>
-		<th width="100px"></th>
 	</tr>
 	<tr style="background: yellow;">
 		<th><input style="width: 380px; background: yellow;" type="text" id="material" name="material" placeholder="음식이름"/></th>
@@ -54,7 +53,6 @@
 			<option value="기타">기타</option>
 		</select></th>
 		<th><a onclick="allergyadd()">추가</a></th>
-		<th><a onclick="location.reload()">취소</a></th>
 	</tr>
 	
 	<c:forEach var="i" items="${vo }">
@@ -72,8 +70,9 @@
 			<option value="육류" ${i. a_category eq '육류' ? 'selected' : ''}>육류</option>
 			<option value="과일" ${i. a_category eq '과일' ? 'selected' : ''}>과일</option>
 			<option value="기타" ${i. a_category eq '기타' ? 'selected' : ''}>기타</option>
-		</select></th>
-	<th><a onclick="if(confirm('수정하시겠습니까?')){location.href='allergyinsert.ad?a_material=${i.a_material}&a_category=${i.a_category }'}">수정</a></th>
+		</select>
+		
+		</th>
 		<th><a onclick="if(confirm('삭제하시겠습니까?')){location.href='allergydelete.ad?a_material=${i.a_material}'}">삭제</a></th>
 	</tr>
 	</c:forEach>

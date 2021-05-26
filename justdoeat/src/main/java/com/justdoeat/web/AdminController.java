@@ -47,6 +47,8 @@ public class AdminController {
 		return "admin/list";
 	}
 	
+	
+	
 	//공지글 띄우
 	@RequestMapping("/chk.ad")
 	public String chk(BoardVO vo) {
@@ -188,9 +190,13 @@ public class AdminController {
 		return "admin/s_detail";
 	}
 	
+	//가게정보
 	@RequestMapping("/store.ad")
 	public String storelist(HttpSession session, Model model ) {
 		session.setAttribute("ad_category", "store");
+		model.addAttribute("all", rservice.ad_restrant());
+		model.addAttribute("toady_r", rservice.today_rstrant());
+		
 		model.addAttribute("vo", rservice.ad_restrant_list());
 		
 		return "admin/s_list";

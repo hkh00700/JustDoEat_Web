@@ -15,7 +15,11 @@ public interface RestrantService {
 	int ad_rstrant_modify(RestrantVO vo);	//관리자가 가게 정보 수정
 	List<RestrantVO> ad_restrant_search(RestrantVO list);	//관리자가 가게 정보 검색
 
+	//가게 전체수
+	int ad_restrant();
 	
+	//오늘 등록한 가게
+	int today_rstrant();
 	
 
 }

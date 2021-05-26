@@ -59,4 +59,14 @@ public class RestrantDAO implements RestrantService{
 		return sql.selectList("admin.mapper.slist", list);
 	}
 
+	@Override
+	public int ad_restrant() {
+		return (Integer)sql.selectOne("admin.mapper.rsall");
+	}
+
+	@Override
+	public int today_rstrant() {
+		return (Integer)sql.selectOne("admin.mapper.rstoday");
+	}
+
 }

@@ -76,6 +76,10 @@ ul{
 	padding-left: 30px;
 }
 
+.ya li a:hover{
+	font-weight: bold;
+}
+
 .yb{
 	text-align: left;
 }
@@ -89,7 +93,7 @@ ul{
 
 
 #img{
-	margin-right: 600px;
+	margin-right: 500px;
 }
 
 .log{
