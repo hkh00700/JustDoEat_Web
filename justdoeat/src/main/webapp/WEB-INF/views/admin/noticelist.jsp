@@ -8,14 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${vo.notice eq 'N'}">
-<h3 id="nowstate">현재 등록된 공지글은 없습니다!!</h3>
-</c:if>
 
-<c:if test="${vo.notice eq 'Y'}">
+
 <h3 id="nowstate">현재 등록된 공지글</h3>
-</c:if>
-
 
 
 <!-- 파일첨부시 주의사항 
@@ -23,12 +18,9 @@
 2. form 태그의 enctype 은 multipart/form-data 로 지정한다.
 -->
 
-<c:if test="${vo.notice eq 'Y'}">
-<form method="post" action="nochk.ad" >
-</c:if>
-<c:if test="${vo.notice eq 'N'}">
-<form method="post" action="chk.ad" >
-</c:if>
+
+<form method="post" action="nomodify.ad" >
+
 <table style="margin: 0 auto; width: 1200px; ">
 <tr style="background-color: #ef5b5b;"> 
 	<td class='wpx160' style="color: #ffffff">목록</td>
@@ -48,13 +40,7 @@
 </form>
 
 <div class='btnSet'>
-	<a class='btn-fill' href="nomodify.ad?no=1">수정</a>
-	<c:if test="${vo.notice eq 'Y'}">
-	<a class='btn-fill' onclick="if(confirm('공지글을 해제 하시겠습니까?')){$('form').submit()}">공지글 해제</a>
-	</c:if>
-	<c:if test="${vo.notice eq 'N'}">
-	<a class='btn-fill' onclick="if(confirm('공지글을 등록 하시겠습니까?')){$('form').submit()}">공지글 등록 </a>
-	</c:if>
+	<a class='btn-fill' onclick="$('form').submit()">수정</a>
 </div>
 
 <script type="text/javascript" src="js/empty_check.js"></script>

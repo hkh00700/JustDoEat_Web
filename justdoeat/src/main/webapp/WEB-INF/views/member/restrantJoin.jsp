@@ -6,9 +6,7 @@
 <link rel='stylesheet' type='text/css' 
 	href='css/member.css?v=<%=new java.util.Date().getTime()%>'>
 <style type="text/css">
-	table {
-		border-collapse: collapse;
-	}
+
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -18,12 +16,12 @@
 	<h3>${vo. m_nikname }님의 가게 등록하기</h3>
 <form  method="post"  enctype="multipart/form-data" action="rinsert.ad" >
 <input type="hidden" name= "m_uq" value="${vo.m_uq }">
-	<table class="centertable" border="1" style="margin: 0 auto; text-align: center;">
+	<table class="centertable" >
 		<tr ><th>*가게명</th>
-			<td class="wpx300 left"><input type="text" name="restaurant" required="required"/></td>
+			<td class="wpx500 left"><input type="text" name="restaurant" required="required"/></td>
 		</tr>
 		<tr><th>주소</th>
-		<td class='wpx300 left'><a class='btn-fill' onclick='daum_post()'>우편번호찾기</a>
+		<td class='wpx300 left'><a style="margin-top: 9px;" class='btn-fill' onclick='daum_post()'>우편번호찾기</a>
 			<input type='text' name='post' class='wpx60' readonly /><br/>
 			<input type='text' name='r_address' readonly />
 		</td>

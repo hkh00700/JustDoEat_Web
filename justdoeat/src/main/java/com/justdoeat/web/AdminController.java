@@ -76,7 +76,7 @@ public class AdminController {
 	//공지글 수정하기
 	@RequestMapping("/nomodify.ad")
 	public String nomodify_ad(Model model, int no) {
-		model.addAttribute("vo", bservice.board_detail(no));
+		model.addAttribute("vo", bservice.board_detail(1));
 		return "admin/modifyList";
 	}
 	

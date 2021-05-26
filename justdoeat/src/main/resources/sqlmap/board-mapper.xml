@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board.mapper">
 
+<update id="noupdate">
+	update s_board set s_title=#{s_title}, s_content=#{s_content}
+			, notice=#{notice, jdbcType=VARCHAR}
+	where no=#{no};
+	end
+
+</update>
 
 <select id="nodetail" resultType="board.BoardVO">
 	select s_title, no, s_content, notice from s_board where no=#{no}
