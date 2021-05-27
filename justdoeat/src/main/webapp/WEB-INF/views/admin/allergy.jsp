@@ -7,6 +7,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	table select{
+		border: none;
+		border-radius:0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background-color: url(../) no-repeat 80% 50%;
+	}
+	#userinput{
+		
+	}
+	
+	table{
+		border: none;
+	}
+	
 	#search_box ul li {
 		float: left;
 	}
@@ -14,6 +30,8 @@
 	#search_box ul li a {
 		cursor: pointer;
 	}
+	
+	
 </style>
 </head>
 <body>
@@ -32,15 +50,14 @@
 		</ul>
 	</div>
 </form>
-<table border="1" style="width:800px; margin: 0 auto; margin-top: 30px; margin-bottom: 20px;">
-	<tr>
+<table style="width:800px; margin: 0 auto; margin-top: 30px; margin-bottom: 20px;">
+	<tr style="background-color: #ae7d7d;">
 		<th width="400px">음식</th>
-		<th width="200px">분류</th>
-		<th width="100px"></th>
+		<th colspan="2" width="200px">분류</th>
 	</tr>
-	<tr style="background: yellow;">
-		<th><input style="width: 380px; background: yellow;" type="text" id="material" name="material" placeholder="음식이름"/></th>
-		<th><select style="width: 180px; background: yellow;" name="category">
+	<tr style="background-color: #cdb9b9;" id="userinput">
+		<th><input style="border:none; border-right:0px; background-color: #cdb9b9; border-top:0px; boder-left:0px; boder-bottom:0px; width: 380px; " type="text" id="material" name="material" placeholder="음식이름"/></th>
+		<th><select style="width: 180px; background-color: #cdb9b9;"name="category">
 			<option value="갑각류" selected>갑각류</option>
 			<option value="견과류">견과류</option>
 			<option value="계란">계란</option>
@@ -52,7 +69,7 @@
 			<option value="과일">과일</option>
 			<option value="기타">기타</option>
 		</select></th>
-		<th><a onclick="allergyadd()">추가</a></th>
+		<th style="width: 100px;"><a onclick="allergyadd()">추가</a></th>
 	</tr>
 	
 	<c:forEach var="i" items="${vo }">

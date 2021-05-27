@@ -76,7 +76,7 @@ text-overflow:ellipsis; white-space:nowrap; }
 	<li>
 		<div style="background-color: #E2E2E2;"><img style="width: 200px; height: 150px;" src="${vo.s_photo_path }" onerror="this.style.display='none'"/></div>
 <!-- 		<div><img style="width: 200px; height: 150px;" src="http://192.168.0.67:8989/justdo_eat/resources/20210517_125928.jpg"></div> -->
-		<div style="margin-top: 10px;"><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
+		<div style="margin-top: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a onclick="go_detail(${vo.no})">${vo.s_title}</a></div>
 		<div>${vo.m_nickname}</div>
 		<div>${vo.updatetime}</div>
 	</li>

@@ -20,7 +20,7 @@ h3{
 .centertable{
 	margin: 0 auto;
 	position: relative;
-	border-collapse: collapse
+	border-collapse: collapse;
 }
 
 .centertable tr{

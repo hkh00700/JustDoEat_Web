@@ -54,9 +54,9 @@
 <table border="1" class="center">
 	<tr>
 		<th class='wpx100'>가게이름</th>
-		<th class='wpx100'>가게주소</th>
+		<th class='wpx400'>가게주소</th>
 		<th class='wpx100'>전화번호</th>
-		<th class='wpx100'>가게메뉴</th>
+		<th class='wpx400'>가게메뉴</th>
 		<th class='wpx100'>등록일자</th>
 	</tr>
 	<c:forEach var="i" items="${vo }">
